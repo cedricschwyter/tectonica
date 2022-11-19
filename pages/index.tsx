@@ -8,9 +8,6 @@ import {
     Collapse,
     Icon,
     Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
@@ -20,8 +17,6 @@ import {
     MenuList,
     MenuItem,
     MenuDivider,
-    UnorderedList,
-    ListItem,
     SimpleGrid
 } from '@chakra-ui/react';
 import {
