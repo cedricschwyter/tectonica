@@ -65,7 +65,7 @@ export function Header() {
     return (
         <Box
             position={'relative'}
-            height={'600px'}
+            height={'full'}
             width={'full'}
             overflow={'hidden'}>
             {/* CSS files for react-slick */}
@@ -116,7 +116,7 @@ export function Header() {
                         backgroundSize="cover"
                         backgroundImage={`url(${card.image})`}>
                         {/* This is the block you need to change, to customize the caption */}
-                        <Container size="container.lg" height="600px" position="relative">
+                        <Container size="container.lg" height="full" position="relative">
                             <Stack
                                 spacing={6}
                                 w={'full'}
