@@ -7,6 +7,7 @@ import {
     Heading,
     Text,
     Container,
+    Button,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
@@ -64,9 +65,8 @@ export function Carousel() {
 
     return (
         <Box
-            position={'relative'}
-            height={'full'}
-            width={'full'}
+            w={'full'}
+            h={'100vh'}
             overflow={'hidden'}>
             {/* CSS files for react-slick */}
             <link
@@ -130,6 +130,7 @@ export function Carousel() {
                                 <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
                                     {card.text}
                                 </Text>
+                                <Button>Download PDF</Button>
                             </Stack>
                         </Container>
                     </Box>
