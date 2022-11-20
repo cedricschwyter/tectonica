@@ -17,7 +17,7 @@ import React from 'react';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 
-export default function ContactFormWithSocialButtons() {
+export default function Kontakt() {
 
     return (
         <Flex

@@ -1,7 +1,7 @@
-import { Header } from "../../src/sections/Header";
+import { Carousel } from "../../src/sections/Carousel";
 
 export default function Home() {
     return (
-        <Header />
+        <Carousel />
     );
 }
