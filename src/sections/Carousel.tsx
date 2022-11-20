@@ -7,6 +7,7 @@ import {
     Heading,
     Text,
     Container,
+    Button,
 } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
@@ -26,7 +27,7 @@ const settings = {
     slidesToScroll: 1,
 };
 
-export function Header() {
+export function Carousel() {
     // As we have used custom buttons, we need a reference variable to
     // change the state
     const [slider, setSlider] = React.useState<Slider | null>(null);
@@ -64,9 +65,8 @@ export function Header() {
 
     return (
         <Box
-            position={'relative'}
-            height={'full'}
-            width={'full'}
+            w={'full'}
+            h={'100vh'}
             overflow={'hidden'}>
             {/* CSS files for react-slick */}
             <link
@@ -130,6 +130,7 @@ export function Header() {
                                 <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
                                     {card.text}
                                 </Text>
+                                <Button>Download PDF</Button>
                             </Stack>
                         </Container>
                     </Box>
