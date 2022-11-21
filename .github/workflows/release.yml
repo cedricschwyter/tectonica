@@ -1,0 +1,26 @@
+name: create release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
+      - name: Generate changelog
+        run: |
+          mkdir -p docs/
+          echo $(yarn run git-conventional-commits changelog) | cat - docs/changelog.md > temp.md && mv temp.md docs/changelog.md
+      - name: Create release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: yarn run git-conventional-commits version | tail -2 | head -1
+          release_name: yarn run git-conventional-commits version | tail -2 | head -1
+          body: yarn run git-conventional-commits changelog
+          replaceArtifacts: false
