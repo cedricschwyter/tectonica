@@ -40,9 +40,9 @@ export default function WithSubnavigation() {
             <NavBar />
             <Flex
                 w={'full'}
-                h={'50vh'}
+                h={'100vh'}
                 backgroundImage={
-                    'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
+                    'url(https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
                 }
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}
@@ -67,8 +67,10 @@ export default function WithSubnavigation() {
             </Flex>
             <Flex
                 w={'full'}
-                h={'50vh'}
-                backgroundColor="black"
+                h={'100vh'}
+                backgroundImage={
+                    'url(https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
+                }
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}>
                 <VStack
@@ -89,8 +91,10 @@ export default function WithSubnavigation() {
             </Flex>
             <Flex
                 w={'full'}
-                h={'50vh'}
-                backgroundColor="black"
+                h={'100vh'}
+                backgroundImage={
+                    'url(https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true)'
+                }
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}>
                 <VStack
@@ -111,8 +115,10 @@ export default function WithSubnavigation() {
             </Flex>
             <Flex
                 w={'full'}
-                h={'50vh'}
-                backgroundColor="black"
+                h={'100vh'}
+                backgroundImage={
+                    'url(https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true)'
+                }
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}>
                 <VStack

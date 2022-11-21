@@ -33,7 +33,7 @@ export const NavBar = () => {
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
-                color={useColorModeValue('gray.600', 'white')}
+                color={'white'}
                 minH={'60px'}
                 py={{ base: 2 }}
                 px={{ base: 4 }}
@@ -70,14 +70,14 @@ export const NavBar = () => {
                             variant={'link'}
                             cursor={'pointer'}
                             minW={0}>
-                            <HamburgerIcon w={6} h={6} />
+                            <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
-                        <MenuList>
-                            <MenuItem>Referenzen</MenuItem>
-                            <MenuItem>Team</MenuItem>
-                            <MenuItem>Jobs</MenuItem>
+                        <MenuList bgColor='black' >
+                            <MenuItem bgColor='black'>Referenzen</MenuItem>
+                            <MenuItem bgColor='black'>Team</MenuItem>
+                            <MenuItem bgColor='black'>Jobs</MenuItem>
                             <MenuDivider />
-                            <MenuItem>Kontakt</MenuItem>
+                            <MenuItem bgColor='black'>Kontakt</MenuItem>
                         </MenuList>
                     </Menu>
                 </Stack>
@@ -145,7 +145,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                             <Link key={child.label} py={2} href={child.href}>
                                 {child.label}
                             </Link>
-                        ))}
+                    ))}
                 </Stack>
             </Collapse>
         </Stack>
