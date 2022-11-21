@@ -15,6 +15,7 @@ interface FeatureProps {
     title: string;
     icon: ReactElement;
 }
+
 const Feature = ({ title, icon }: FeatureProps) => {
     return (
         <Stack>
@@ -52,8 +53,12 @@ export default function WithSubnavigation() {
                     w={'full'}
                     justify={'center'}
                     px={useBreakpointValue({ base: 4, md: 8 })}
-                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                    bgGradient={'radial(blackAlpha.700, transparent)'}>
+                    <Stack
+                        maxW={'2xl'}
+                        align={'flex-start'}
+                        spacing={6}
+                        p={'10vh'}>
                         <Text
                             color={'white'}
                             fontWeight={700}
