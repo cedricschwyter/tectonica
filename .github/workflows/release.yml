@@ -18,6 +18,7 @@ jobs:
         run: |
           echo "CHANGELOG=$(yarn run git-conventional-commits changelog | tail -n +3 | head -n -1)" >> $GITHUB_OUTPUT
           echo "VERSION=$(yarn run git-conventional-commits version | tail -2 | head -1)" >> $GITHUB_OUTPUT
+          yarn version ${{ steps.semantic-release.outputs.VERSION }}
           mkdir -p docs/
           touch docs/CHANGELOG.md
           echo ${{ steps.semantic-release.outputs.CHANGELOG }} | cat - docs/CHANGELOG.md > temp.md && mv temp.md docs/CHANGELOG.md
