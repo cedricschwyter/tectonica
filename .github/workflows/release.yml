@@ -11,16 +11,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.0
+      - name: Install dependencies
+        run: yarn install
       - name: Generate changelog
+        id: semantic-release
         run: |
+          echo "CHANGELOG=$(yarn run git-conventional-commits changelog | tail -n +3 | head -n -1)" >> $GITHUB_OUTPUT
+          echo "VERSION=$(yarn run git-conventional-commits version | tail -2 | head -1)" >> $GITHUB_OUTPUT
           mkdir -p docs/
-          echo $(yarn run git-conventional-commits changelog) | cat - docs/changelog.md > temp.md && mv temp.md docs/changelog.md
+          touch docs/CHANGELOG.md
+          echo ${{ steps.semantic-release.outputs.CHANGELOG }} | cat - docs/CHANGELOG.md > temp.md && mv temp.md docs/CHANGELOG.md
       - name: Create release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: yarn run git-conventional-commits version | tail -2 | head -1
-          release_name: yarn run git-conventional-commits version | tail -2 | head -1
-          body: yarn run git-conventional-commits changelog
+          tag_name: ${{ steps.semantic-release.outputs.VERSION }}
+          release_name: v${{ steps.semantic-release.outputs.VERSION }}
+          body: ${{ steps.semantic-release.outputs.CHANGELOG }}
           replaceArtifacts: false
