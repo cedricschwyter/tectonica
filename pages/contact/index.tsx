@@ -17,8 +17,7 @@ import React from 'react';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 
-export default function Kontakt() {
-
+export default function Contact() {
     return (
         <Flex
             bg={useColorModeValue('gray.100', 'gray.900')}
@@ -38,11 +37,9 @@ export default function Kontakt() {
                             }}>
                             Get in Touch
                         </Heading>
-
                         <Stack
                             spacing={{ base: 4, md: 8, lg: 20 }}
                             direction={{ base: 'column', md: 'row' }}>
-
                             <Box
                                 bg={useColorModeValue('white', 'gray.700')}
                                 borderRadius="lg"
@@ -52,13 +49,11 @@ export default function Kontakt() {
                                 <VStack spacing={5}>
                                     <FormControl isRequired>
                                         <FormLabel>Name</FormLabel>
-
                                         <InputGroup>
                                             <InputLeftElement><BsPerson /></InputLeftElement>
                                             <Input type="text" name="name" placeholder="Your Name" />
                                         </InputGroup>
                                     </FormControl>
-
                                     <FormControl isRequired>
                                         <FormLabel>Email</FormLabel>
 
@@ -71,7 +66,6 @@ export default function Kontakt() {
                                             />
                                         </InputGroup>
                                     </FormControl>
-
                                     <FormControl isRequired>
                                         <FormLabel>Message</FormLabel>
 
@@ -82,7 +76,6 @@ export default function Kontakt() {
                                             resize="none"
                                         />
                                     </FormControl>
-
                                     <Button
                                         colorScheme="blue"
                                         bg="blue.400"
