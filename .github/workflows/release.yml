@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.0
         with:
-          token: ${{ secrets.BOT_TOKEN}}
+          token: ${{ secrets.BOT_TOKEN }}
       - name: Install dependencies
         run: yarn install
       - name: Generate changelog
@@ -27,7 +27,7 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           mkdir -p docs/
           touch docs/CHANGELOG.md
-          echo "$CHANGELOG" | cat - docs/CHANGELOG.md > temp.md && mv temp.md docs/CHANGELOG.md
+          echo -e "$CHANGELOG\n\n" | cat - docs/CHANGELOG.md > temp.md && mv temp.md docs/CHANGELOG.md
           rm -rf .git/hooks/commit-msg
           git config --unset core.hooksPath
           git config --global user.name "github-actions[bot]"
@@ -35,6 +35,7 @@ jobs:
           git add -A
           yarn version --new-version $VERSION --message "[VERSION] $VERSION"
           git push
+          echo "COMMITISH=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
           git fetch --unshallow
           git checkout develop
           git pull
@@ -49,4 +50,5 @@ jobs:
           tag_name: ${{ steps.semantic-release.outputs.VERSION }}
           release_name: v${{ steps.semantic-release.outputs.VERSION }}
           body: ${{ steps.semantic-release.outputs.CHANGELOG }}
+          commitish: ${{ steps.semantic-release.outputs.COMMITISH }}
           replaceArtifacts: false
