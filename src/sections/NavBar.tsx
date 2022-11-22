@@ -26,11 +26,10 @@ import {
 export const NavBar = () => {
     const { isOpen, onToggle } = useDisclosure();
     return (
-        < Box
+        <Box
             position="fixed"
             width="100%"
-            padding={"2%"}
-        >
+            padding={"2%"}>
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
                 color={'white'}
