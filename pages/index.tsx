@@ -10,6 +10,7 @@ import {
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 import { ReactElement } from 'react';
 import { NavBar } from '../src/sections/NavBar';
+import Footer from '../src/sections/Footer';
 
 interface FeatureProps {
     title: string;
@@ -156,6 +157,7 @@ export default function WithSubnavigation() {
                     </Stack>
                 </VStack>
             </Flex>
+            <Footer />
         </Flex >
     );
 }
