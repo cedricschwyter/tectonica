@@ -86,7 +86,7 @@ function ProductAddToCart() {
                         pb="5em"
                     >
                         <Text fontSize={"4xl"} pb="1%" color={'white'}>Unser Team</Text>
-                        <SimpleGrid minChildWidth={["50%", "30%", "30%"]} spacing='5vh' width="100%">
+                        <SimpleGrid minChildWidth={["50%", "30%"]} spacing='5vh' width="100%">
                             <Member
                                 name='Helmine Jennifer'
                                 position="CEO"

@@ -2,11 +2,8 @@ import {
     Box,
     Flex,
     Text,
-    IconButton,
     Button,
     Stack,
-    useBreakpointValue,
-    useDisclosure,
     Menu,
     MenuButton,
     MenuList,
@@ -15,16 +12,14 @@ import {
 } from '@chakra-ui/react';
 import {
     HamburgerIcon,
-    CloseIcon,
 } from '@chakra-ui/icons';
 
 export const NavBar = () => {
-    const { isOpen, onToggle } = useDisclosure();
     return (
         <Box
-            position="fixed"
+            position={["absolute", "fixed"]}
             width="100%"
-            padding={["0%", "2%", "2%"]}
+            padding={["0%", "2%"]}
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
