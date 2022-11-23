@@ -8,15 +8,16 @@ import {
     VStack,
     Stack
 } from '@chakra-ui/react';
-import { ReactElement } from 'react';
+
 import { NavBar } from '../../src/sections/NavBar';
 
-interface MamberProps {
+interface MemberProps {
     name: string;
+    position: string;
     picture: string;
 }
 
-const Member = ({ name, picture }: MamberProps) => {
+const Member = ({ name, position, picture }: MemberProps) => {
     return (
         <Box
             bg={useColorModeValue('white', 'gray.800')}
@@ -25,7 +26,7 @@ const Member = ({ name, picture }: MamberProps) => {
             shadow="lg"
             position="relative"
         >
-            <Box p="6">
+            <Box p="4%">
                 <Image
                     src={picture}
                     alt={``}
@@ -36,12 +37,18 @@ const Member = ({ name, picture }: MamberProps) => {
                 />
                 <Flex mt="1" justifyContent="space-between" alignContent="center">
                     <Box
-                        fontSize="2xl"
+                        fontSize="1xl"
                         fontWeight="semibold"
-                        as="h4"
                         lineHeight="tight"
                     >
                         {name}
+                    </Box>
+                    <Box
+                        fontSize="1xl"
+                        fontWeight="semibold"
+                        lineHeight="tight"
+                    >
+                        {position}
                     </Box>
                 </Flex>
             </Box>
@@ -51,48 +58,63 @@ const Member = ({ name, picture }: MamberProps) => {
 
 function ProductAddToCart() {
     return (
-        <Flex flexDirection="column" w={'full'} height="100%">
+        <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
             <NavBar />
             <Flex
                 flexDirection={"column"}
                 w={'full'}
-                height={"100vh"}
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}
+                minHeight="100vh"
+                height={"100%"}
+                bgSize='cover'
+                bgAttachment='fixed'
                 backgroundImage={
                     'url(https://unsplash.com/photos/yWwob8kwOCk/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk0OTcx&force=true)'
                 }
             >
                 <VStack
                     w={'full'}
+                    minHeight="100vh"
                     justify={'center'}
-                    pt="2%"
+                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
                 >
                     <Stack
-                        width="70%"
+                        width="100%"
                         align={'flex-start'}
-                        spacing={6}
-                        p={'10vh'}>
+                        pt="5em"
+                        pl="20%"
+                        pr="20%"
+                        pb="5em"
+                    >
                         <Text fontSize={"4xl"} pb="1%" color={'white'}>Unser Team</Text>
-                        <SimpleGrid minChildWidth='20%' spacing='40px' width="100%">
+                        <SimpleGrid minChildWidth={["50%", "30%", "30%"]} spacing='5vh' width="100%">
                             <Member
-                                name='someone'
+                                name='Helmine Jennifer'
+                                position="CEO"
                                 picture={"https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2019/01/tips-for-professional-portraits.jpg"}
                             />
                             <Member
-                                name='someone'
+                                name='Hardy Anina'
+                                position="Bauleiter"
                                 picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
                             />
                             <Member
-                                name='someone'
+                                name='Wenzeslaus Emilia'
+                                position="CEO"
+                                picture={"https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true"}
+                            />
+                            <Member
+                                name='Eugen Hasso'
+                                position="CEO"
                                 picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
                             />
                             <Member
-                                name='someone'
+                                name='Lothar Uta'
+                                position="CEO"
                                 picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
                             />
                             <Member
-                                name='someone'
+                                name='Lothar Uta'
+                                position="CEO"
                                 picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
                             />
                         </SimpleGrid>
