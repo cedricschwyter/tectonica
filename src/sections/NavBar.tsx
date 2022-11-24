@@ -13,6 +13,7 @@ import {
 import {
     HamburgerIcon,
 } from '@chakra-ui/icons';
+import Router from 'next/router';
 
 export const NavBar = () => {
     return (
@@ -50,11 +51,11 @@ export const NavBar = () => {
                             <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
                         <MenuList bgColor='black' >
-                            <MenuItem bgColor='black'>Referenzen</MenuItem>
-                            <MenuItem bgColor='black'>Team</MenuItem>
-                            <MenuItem bgColor='black'>Jobs</MenuItem>
+                            <MenuItem bgColor='black' onClick={() => Router.push('/references')}>Referenzen</MenuItem>
+                            <MenuItem bgColor='black' onClick={() => Router.push('/team')}>Team</MenuItem>
+                            <MenuItem bgColor='black' onClick={() => Router.push('/jobs')}>Jobs</MenuItem>
                             <MenuDivider />
-                            <MenuItem bgColor='black'>Kontakt</MenuItem>
+                            <MenuItem bgColor='black' onClick={() => Router.push('/contact')}>Kontakt</MenuItem>
                         </MenuList>
                     </Menu>
                 </Stack>
