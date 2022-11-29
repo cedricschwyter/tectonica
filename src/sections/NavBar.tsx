@@ -21,6 +21,7 @@ export const NavBar = () => {
             position={["absolute", "fixed"]}
             width="100%"
             padding={["0%", "2%"]}
+            zIndex={1}
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
@@ -51,7 +52,7 @@ export const NavBar = () => {
                             <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
                         <MenuList bgColor='black' >
-                            <MenuItem bgColor='black' onClick={() => Router.push('/references')}>Referenzen</MenuItem>
+                            <MenuItem bgColor='black' onClick={() => Router.push('/projects')}>Projekte</MenuItem>
                             <MenuItem bgColor='black' onClick={() => Router.push('/team')}>Team</MenuItem>
                             <MenuItem bgColor='black' onClick={() => Router.push('/jobs')}>Jobs</MenuItem>
                             <MenuDivider />

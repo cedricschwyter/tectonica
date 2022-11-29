@@ -25,6 +25,12 @@
       "@public": [
         "./public"
       ],
+      "@sections/*": [
+        "./src/sections/*"
+      ],
+      "@sections": [
+        "./src/sections"
+      ],
     },
   },
   "include": [

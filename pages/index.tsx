@@ -9,8 +9,8 @@ import {
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 import { ReactElement } from 'react';
-import { NavBar } from '../src/sections/NavBar';
-import Footer from '../src/sections/Footer';
+import { NavBar } from '@sections/NavBar';
+import Footer from '@sections/Footer';
 
 interface FeatureProps {
     title: string;
