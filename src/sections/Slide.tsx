@@ -25,7 +25,6 @@ export const Slide = ({ index, image, title, text, pdf }: SlideProps) => {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundImage={`url(${image})`}>
-            {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="full" position="relative">
                 <Stack
                     spacing={6}
@@ -40,7 +39,7 @@ export const Slide = ({ index, image, title, text, pdf }: SlideProps) => {
                     <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
                         {text}
                     </Text>
-                    <Button onClick={() => alert(`Post ${index} clicked`)}>Download PDF</Button>
+                    <Button onClick={() => alert(`Post ${title} clicked`)}>{index}</Button>
                 </Stack>
             </Container>
         </Box>
