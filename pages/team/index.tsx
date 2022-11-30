@@ -9,7 +9,7 @@ import {
     Stack
 } from '@chakra-ui/react';
 
-import { NavBar } from '../../src/sections/NavBar';
+import { NavBar } from '@sections/NavBar';
 
 interface MemberProps {
     name: string;
