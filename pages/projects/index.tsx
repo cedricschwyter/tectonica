@@ -11,6 +11,7 @@ import {
     Flex,
     Image,
     Link,
+    Spacer,
 } from '@chakra-ui/react';
 import Slider from 'react-slick';
 import Router from 'next/router';
@@ -21,7 +22,19 @@ export default function Home() {
     const [slider, setSlider] = React.useState<Slider | null>(null);
     const top = useBreakpointValue({ base: '90%', md: '50%' });
     const side = useBreakpointValue({ base: '30%', md: '40px' });
-
+    const pdfs = [
+        '2003_Heckenried_Meggen',
+        '2006_Wilstrasse_Dübendorf',
+        '2008_VKU_Flughafen',
+        '2009_Hochdorf_Nutritec_Sulgen',
+        '2012_HLM_Einsiedeln_Halle_70-80',
+        '2012_SCK_Kloten',
+        '2012_HLM_Einsiedeln_Verwaltung',
+        '2012_Zypressenhof_Dietikon',
+        '2014_EAH_Hotel_25Hours',
+        '2017_EFH_Amanjiwo_2_Luzern',
+        '2017_Biozentrum_Basel-2',
+    ];
     const projects = [
         {
             title: 'Heckenried Meggen',
@@ -30,9 +43,7 @@ export default function Home() {
             background:
                 'https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
             file:
-                '2003_Heckenried_Meggen',
-
-
+                pdfs[0],
         },
         {
             title: 'Wilstrasse Dübendorf',
@@ -41,7 +52,7 @@ export default function Home() {
             background:
                 'https://images.unsplash.com/photo-1510507024924-fc3847d49ae2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
             file:
-                '2006_Wilstrasse_Dübendorf',
+                pdfs[1],
         },
         {
             title: 'VKU Flughafen',
@@ -50,7 +61,7 @@ export default function Home() {
             background:
                 'https://images.unsplash.com/photo-1529607697227-d616efef768f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
             file:
-                '2008_VKU_Flughafen',
+                pdfs[2],
         },
     ];
     return (
@@ -122,7 +133,7 @@ export default function Home() {
                                     top="50%"
                                     transform="translate(0, -70%)"
                                 >
-                                    <Flex width={"100%"}>
+                                    <Flex width={"100%"} backgroundColor={"rgba(16,16,16,0.9)"} p={"1%"} borderRadius={"1%"}>
                                         <Flex flexDir={"column"} mr="2%">
                                             <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
                                                 {project.title}
@@ -130,6 +141,7 @@ export default function Home() {
                                             <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
                                                 {project.text}
                                             </Text>
+                                            <Spacer />
                                             <Button onClick={() => { Router.push(`/pdf/${project.file}.pdf`) }}>
                                                 Download PDF
                                             </Button>
@@ -149,6 +161,7 @@ export default function Home() {
                         backgroundPosition="center"
                         backgroundRepeat="no-repeat"
                         backgroundSize="cover"
+                        backgroundImage={`url(https://images.unsplash.com/photo-1646670966636-26b582be8581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80)`}
                     >
                         <Flex justify="center">
                             <Stack key={4}
@@ -157,17 +170,17 @@ export default function Home() {
                                 top="50%"
                                 transform="translate(0, -70%)"
                             >
-                                <Flex flexDir={"column"} mr="2%">
+                                <Flex flexDir={"column"} mr="2%" backgroundColor={"rgba(16,16,16,0.9)"} p={"1%"} borderRadius={"1%"}>
                                     <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
                                         Alle Projekte
                                     </Heading>
-                                    <Box>
-                                        {/*
-                                            filenames.map((filename) => {
-                                                <Link href={filename}>{filename}</Link>
+                                    <Flex flexDir={"column"}>
+                                        {
+                                            pdfs.map((pdf, index) => {
+                                                return (<Link target="_blank" href={'/pdf/' + pdf + '.pdf'} key={index}>{pdf.replaceAll('_', ' ')}</Link>)
                                             })
-                                        */}
-                                    </Box>
+                                        }
+                                    </Flex>
                                 </Flex>
                             </Stack>
                         </Flex>
