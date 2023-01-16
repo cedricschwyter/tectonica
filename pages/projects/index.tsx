@@ -17,6 +17,7 @@ import Slider from 'react-slick';
 import Router from 'next/router';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { NavBar } from '@sections/NavBar';
+import CarouselWidget from '../../src/components/CarouselWidget';
 
 export default function Home() {
     const [slider, setSlider] = React.useState<Slider | null>(null);
@@ -106,7 +107,7 @@ export default function Home() {
                     <BiRightArrowAlt size="40px" />
                 </IconButton>
                 <Slider
-                    dots={true}
+                    dots={false}
                     arrows={true}
                     infinite={true}
                     autoplay={false}
@@ -117,76 +118,40 @@ export default function Home() {
                     ref={(slider) => setSlider(slider)}
                 >
                     {projects.map((project, index) => (
-                        <Box
-                            key={index}
-                            height={'6xl'}
-                            position="relative"
-                            backgroundPosition="center"
-                            backgroundRepeat="no-repeat"
-                            backgroundSize="cover"
-                            backgroundImage={`url(${project.background})`}
-                        >
-                            <Flex justify="center">
-                                <Stack key={index}
-                                    w={'50%'}
-                                    position="absolute"
-                                    top="50%"
-                                    transform="translate(0, -70%)"
-                                >
-                                    <Flex width={"100%"} backgroundColor={"rgba(16,16,16,0.9)"} p={"1%"} borderRadius={"1%"}>
-                                        <Flex flexDir={"column"} mr="2%">
-                                            <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                                                {project.title}
-                                            </Heading>
-                                            <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                                                {project.text}
-                                            </Text>
-                                            <Spacer />
-                                            <Button onClick={() => { Router.push(`/pdf/${project.file}.pdf`) }}>
-                                                Download PDF
-                                            </Button>
-                                        </Flex>
-                                        <Flex width={"80%"}>
-                                            <Image src={`/img/${project.file}.jpg`} alt="Preview" />
-                                        </Flex>
-                                    </Flex>
-                                </Stack>
+                        <CarouselWidget index={index} background={project.background}>
+                            <Flex flexDir={"column"} mr="2%">
+                                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} color={"white"}>
+                                    {project.title}
+                                </Heading>
+                                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
+                                    {project.text}
+                                </Text>
+                                <Spacer />
+                                <Button onClick={() => { Router.push(`/pdf/${project.file}.pdf`) }}>
+                                    Download PDF
+                                </Button>
                             </Flex>
-                        </Box>
+                            <Flex width={"80%"}>
+                                <Image src={`/img/${project.file}.jpg`} alt="Preview" />
+                            </Flex>
+                        </CarouselWidget>
                     ))}
-                    <Box
-                        key={4}
-                        height={'6xl'}
-                        position="relative"
-                        backgroundPosition="center"
-                        backgroundRepeat="no-repeat"
-                        backgroundSize="cover"
-                        backgroundImage={`url(https://images.unsplash.com/photo-1646670966636-26b582be8581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80)`}
-                    >
-                        <Flex justify="center">
-                            <Stack key={4}
-                                w={'50%'}
-                                position="absolute"
-                                top="50%"
-                                transform="translate(0, -70%)"
-                            >
-                                <Flex flexDir={"column"} mr="2%" backgroundColor={"rgba(16,16,16,0.9)"} p={"1%"} borderRadius={"1%"}>
-                                    <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                                        Alle Projekte
-                                    </Heading>
-                                    <Flex flexDir={"column"}>
-                                        {
-                                            pdfs.map((pdf, index) => {
-                                                return (<Link target="_blank" href={'/pdf/' + pdf + '.pdf'} key={index}>{pdf.replaceAll('_', ' ')}</Link>)
-                                            })
-                                        }
-                                    </Flex>
-                                </Flex>
-                            </Stack>
+                    <CarouselWidget index={4} background={'https://images.unsplash.com/photo-1646670966636-26b582be8581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80'}>
+                        <Flex flexDir={"column"} mr="2%">
+                            <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} color={"white"}>
+                                Alle Projekte
+                            </Heading>
+                            <Flex flexDir={"column"}>
+                                {
+                                    pdfs.map((pdf, index) => {
+                                        return (<Link target="_blank" href={'/pdf/' + pdf + '.pdf'} key={index} color="GrayText">{pdf.replaceAll('_', ' ')}</Link>)
+                                    })
+                                }
+                            </Flex>
                         </Flex>
-                    </Box>
+                    </CarouselWidget>
                 </Slider>
             </Box>
-        </Flex>
+        </Flex >
     );
 }
