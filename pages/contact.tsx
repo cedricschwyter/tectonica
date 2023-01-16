@@ -18,7 +18,7 @@ import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 import PageTitle from '@components/PageTitle';
 
-export default function Contact() {
+const Contact = () => {
     return (
         <>
             <PageTitle title={"tectonica | Kontakt"} />
@@ -99,3 +99,4 @@ export default function Contact() {
         </>
     );
 }
+export default Contact;

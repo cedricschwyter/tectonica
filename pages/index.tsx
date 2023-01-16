@@ -37,7 +37,7 @@ const Feature = ({ title, icon }: FeatureProps) => {
     );
 };
 
-export default function WithSubnavigation() {
+const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
@@ -165,3 +165,5 @@ export default function WithSubnavigation() {
         </>
     );
 }
+
+export default LandingPage;

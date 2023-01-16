@@ -18,7 +18,7 @@ import { NavBar } from '@sections/NavBar';
 import CarouselWidget from '@components/CarouselWidget';
 import PageTitle from '@components/PageTitle';
 
-export default function Home() {
+const Projects = () => {
     const [slider, setSlider] = React.useState<Slider | null>(null);
     const top = useBreakpointValue({ base: '90%', md: '50%' });
     const side = useBreakpointValue({ base: '30%', md: '40px' });
@@ -38,30 +38,21 @@ export default function Home() {
     const projects = [
         {
             title: 'Heckenried Meggen',
-            text:
-                "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-            background:
-                'https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
-            file:
-                pdfs[0],
+            text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+            background: 'https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
+            file: pdfs[0],
         },
         {
             title: 'Wilstrasse Dübendorf',
-            text:
-                "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-            background:
-                'https://images.unsplash.com/photo-1510507024924-fc3847d49ae2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-            file:
-                pdfs[1],
+            text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+            background: 'https://images.unsplash.com/photo-1510507024924-fc3847d49ae2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            file: pdfs[1],
         },
         {
             title: 'VKU Flughafen',
-            text:
-                "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-            background:
-                'https://images.unsplash.com/photo-1529607697227-d616efef768f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-            file:
-                pdfs[2],
+            text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+            background: 'https://images.unsplash.com/photo-1529607697227-d616efef768f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            file: pdfs[2],
         },
     ];
     return (
@@ -116,7 +107,7 @@ export default function Home() {
                         ref={(slider) => setSlider(slider)}
                     >
                         {projects.map((project, index) => (
-                            <CarouselWidget index={index} background={project.background}>
+                            <CarouselWidget key={index} background={project.background}>
                                 <Flex flexDir={{ base: "column", md: "row-reverse" }}>
                                     <Flex width={{ base: "100%", md: "80%" }}>
                                         <Image src={`/img/${project.file}.jpg`} alt="Preview" />
@@ -136,7 +127,7 @@ export default function Home() {
                                 </Flex>
                             </CarouselWidget>
                         ))}
-                        <CarouselWidget index={4} background={'https://images.unsplash.com/photo-1646670966636-26b582be8581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80'}>
+                        <CarouselWidget key={4} background={'https://images.unsplash.com/photo-1646670966636-26b582be8581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80'}>
                             <Flex flexDir={"column"} mr="2%">
                                 <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} color={"white"}>
                                     Alle Projekte
@@ -156,3 +147,5 @@ export default function Home() {
         </>
     );
 }
+
+export default Projects;

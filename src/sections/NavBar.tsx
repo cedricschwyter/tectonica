@@ -13,7 +13,6 @@ import {
 import {
     HamburgerIcon,
 } from '@chakra-ui/icons';
-import Router from 'next/router';
 import NextLink from 'next/link';
 
 export const NavBar = () => {

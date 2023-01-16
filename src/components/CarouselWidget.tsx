@@ -1,15 +1,13 @@
-import { Box, Flex, Stack } from "@chakra-ui/react";
+import { Box, FlexProps, Flex, Stack } from "@chakra-ui/react";
 
-interface CarouselWidgetProps {
-    index: number;
+interface CarouselWidgetProps extends FlexProps {
     background: string;
     children?: React.ReactNode;
 }
 
-const CarouselWidget = ({ index, background, children }: CarouselWidgetProps) => {
+const CarouselWidget = ({ background, children }: CarouselWidgetProps) => {
     return (
         <Box
-            key={index}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
@@ -18,7 +16,7 @@ const CarouselWidget = ({ index, background, children }: CarouselWidgetProps) =>
             minH={"100vh"}
         >
             <Flex justify="center" align={"center"} minH={"100vh"}>
-                <Stack key={index}
+                <Stack
                     w={{ base: '90%', md: '70%' }}
                 >
                     <Flex width={"100%"} backgroundColor={"rgba(16,16,16,0.9)"} p={"5%"} borderRadius={"1%"}>

@@ -12,52 +12,20 @@ import PageTitle from '@components/PageTitle';
 
 import { NavBar } from '@sections/NavBar';
 
-interface MemberProps {
-    name: string;
-    position: string;
-    picture: string;
-}
-
-const Member = ({ name, position, picture }: MemberProps) => {
-    return (
-        <Box
-            bg={useColorModeValue('white', 'gray.800')}
-            borderWidth="1px"
-            rounded="lg"
-            shadow="lg"
-            position="relative"
-        >
-            <Box p="4%">
-                <Image
-                    src={picture}
-                    alt={``}
-                    roundedTop="lg"
-                    height="30vh"
-                    width={"100%"}
-                    objectFit="cover"
-                />
-                <Flex mt="1" justifyContent="space-between" alignContent="center">
-                    <Box
-                        fontSize="1xl"
-                        fontWeight="semibold"
-                        lineHeight="tight"
-                    >
-                        {name}
-                    </Box>
-                    <Box
-                        fontSize="1xl"
-                        fontWeight="semibold"
-                        lineHeight="tight"
-                    >
-                        {position}
-                    </Box>
-                </Flex>
-            </Box>
-        </Box>
-    );
-};
-
 const Team = () => {
+    const members = [
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
+            position: "CEO",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
+            position: "Bauleiter",
+        },
+    ]
+
     return (
         <>
             <PageTitle title={"tectonica | Team"} />
@@ -89,37 +57,44 @@ const Team = () => {
                             pb="5em"
                         >
                             <Text fontSize={"4xl"} pb="1%" color={'white'}>Unser Team</Text>
-                            <SimpleGrid minChildWidth={["50%", "30%"]} spacing='5vh' width="100%">
-                                <Member
-                                    name='Helmine Jennifer'
-                                    position="CEO"
-                                    picture={"https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2019/01/tips-for-professional-portraits.jpg"}
-                                />
-                                <Member
-                                    name='Hardy Anina'
-                                    position="Bauleiter"
-                                    picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
-                                />
-                                <Member
-                                    name='Wenzeslaus Emilia'
-                                    position="CEO"
-                                    picture={"https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true"}
-                                />
-                                <Member
-                                    name='Eugen Hasso'
-                                    position="CEO"
-                                    picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
-                                />
-                                <Member
-                                    name='Lothar Uta'
-                                    position="CEO"
-                                    picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
-                                />
-                                <Member
-                                    name='Lothar Uta'
-                                    position="CEO"
-                                    picture={"https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true"}
-                                />
+                            <SimpleGrid minChildWidth={["50%", "25%"]} spacing='5vh' width="100%">
+                                {members.map((member, index) => (
+                                    <Box
+                                        key={index}
+                                        bg={useColorModeValue('white', 'gray.800')}
+                                        borderWidth="1px"
+                                        rounded="lg"
+                                        shadow="lg"
+                                        position="relative"
+                                    >
+                                        <Box p="4%">
+                                            <Image
+                                                src={member.picture}
+                                                alt={``}
+                                                roundedTop="lg"
+                                                height="30vh"
+                                                width={"100%"}
+                                                objectFit="cover"
+                                            />
+                                            <Flex mt="1" justifyContent="space-between" alignContent="center">
+                                                <Box
+                                                    fontSize="1xl"
+                                                    fontWeight="semibold"
+                                                    lineHeight="tight"
+                                                >
+                                                    {member.name}
+                                                </Box>
+                                                <Box
+                                                    fontSize="1xl"
+                                                    fontWeight="semibold"
+                                                    lineHeight="tight"
+                                                >
+                                                    {member.position}
+                                                </Box>
+                                            </Flex>
+                                        </Box>
+                                    </Box>
+                                ))}
                             </SimpleGrid>
                         </Stack>
                     </VStack>
