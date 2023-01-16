@@ -1,27 +1,29 @@
-import { Box, Flex, Stack, Heading, Spacer, Button } from "@chakra-ui/react";
-import { Router } from "next/router";
+import { Box, Flex, Stack } from "@chakra-ui/react";
+import { ReactElement } from "react";
 
-interface CarouselWidgetProps extends React.FC {
+interface CarouselWidgetProps {
     index: number;
     background: string;
+    children?: React.ReactNode;
 }
-const CarouselWidget = (props, { index, background }: CarouselWidgetProps) => {
+
+const CarouselWidget = ({ index, background, children }: CarouselWidgetProps) => {
     return (
         <Box
             key={index}
-            height={'6xl'}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${background})`}
+            minH={"100vh"}
         >
             <Flex justify="center" align={"center"} minH={"100vh"}>
                 <Stack key={index}
-                    w={'50%'}
+                    w={{ base: '90%', md: '70%' }}
                 >
-                    <Flex width={"100%"} backgroundColor={"rgba(16,16,16,0.9)"} p={"1%"} borderRadius={"1%"}>
-                        {props.children}
+                    <Flex width={"100%"} backgroundColor={"rgba(16,16,16,0.9)"} p={"5%"} borderRadius={"1%"}>
+                        {children}
                     </Flex>
                 </Stack>
             </Flex>

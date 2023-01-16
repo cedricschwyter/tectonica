@@ -110,29 +110,28 @@ export default function Home() {
                     dots={false}
                     arrows={true}
                     infinite={true}
-                    autoplay={false}
-                    speed={500}
-                    autoplaySpeed={5000}
                     slidesToShow={1}
                     slidesToScroll={1}
                     ref={(slider) => setSlider(slider)}
                 >
                     {projects.map((project, index) => (
                         <CarouselWidget index={index} background={project.background}>
-                            <Flex flexDir={"column"} mr="2%">
-                                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} color={"white"}>
-                                    {project.title}
-                                </Heading>
-                                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                                    {project.text}
-                                </Text>
-                                <Spacer />
-                                <Button onClick={() => { Router.push(`/pdf/${project.file}.pdf`) }}>
-                                    Download PDF
-                                </Button>
-                            </Flex>
-                            <Flex width={"80%"}>
-                                <Image src={`/img/${project.file}.jpg`} alt="Preview" />
+                            <Flex flexDir={{ base: "column", md: "row-reverse" }}>
+                                <Flex width={{ base: "100%", md: "80%" }}>
+                                    <Image src={`/img/${project.file}.jpg`} alt="Preview" />
+                                </Flex>
+                                <Flex flexDir={"column"} mr="2%">
+                                    <Heading fontSize={{ base: '2xl', md: '4xl' }} color={"white"}>
+                                        {project.title}
+                                    </Heading>
+                                    <Text fontSize={{ base: 'sm', lg: 'md' }} color="GrayText">
+                                        {project.text}
+                                    </Text>
+                                    <Spacer />
+                                    <Button onClick={() => { Router.push(`/pdf/${project.file}.pdf`) }}>
+                                        Download PDF
+                                    </Button>
+                                </Flex>
                             </Flex>
                         </CarouselWidget>
                     ))}
