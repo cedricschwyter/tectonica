@@ -1,5 +1,4 @@
 import { Box, Flex, Stack } from "@chakra-ui/react";
-import { ReactElement } from "react";
 
 interface CarouselWidgetProps {
     index: number;
