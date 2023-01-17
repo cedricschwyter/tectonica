@@ -14,6 +14,7 @@ import PageTitle from '@components/PageTitle';
 import { NavBar } from '@sections/NavBar';
 
 const Team = () => {
+    const backgroundcolor = useColorModeValue('white', 'gray.800');
     const members = [
         {
             name: "Eugen Hasso",
@@ -60,7 +61,7 @@ const Team = () => {
                                 {members.map((member, index) => (
                                     <Box
                                         key={index}
-                                        bg={useColorModeValue('white', 'gray.800')}
+                                        bg={backgroundcolor}
                                         borderWidth="1px"
                                         rounded="lg"
                                         shadow="lg"

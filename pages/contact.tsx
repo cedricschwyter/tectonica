@@ -18,6 +18,7 @@ import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 import PageTitle from '@components/PageTitle';
 import { NavBar } from '@sections/NavBar';
+import Background from '@components/Background';
 
 const Contact = () => {
     return (
