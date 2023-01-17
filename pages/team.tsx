@@ -8,6 +8,7 @@ import {
     VStack,
     Stack
 } from '@chakra-ui/react';
+import Background from '@components/Background';
 import PageTitle from '@components/PageTitle';
 
 import { NavBar } from '@sections/NavBar';
@@ -28,6 +29,7 @@ const Team = () => {
 
     return (
         <>
+            <Background />
             <PageTitle title={"tectonica | Team"} />
             <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
                 <NavBar />
@@ -38,9 +40,6 @@ const Team = () => {
                     height={"100%"}
                     bgSize='cover'
                     bgAttachment='fixed'
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/yWwob8kwOCk/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk0OTcx&force=true)'
-                    }
                 >
                     <VStack
                         w={'full'}

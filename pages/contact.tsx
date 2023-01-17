@@ -17,16 +17,15 @@ import React from 'react';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 import PageTitle from '@components/PageTitle';
+import { NavBar } from '@sections/NavBar';
 
 const Contact = () => {
     return (
         <>
+            <Background />
             <PageTitle title={"tectonica | Kontakt"} />
-            <Flex
-                bg={useColorModeValue('gray.100', 'gray.900')}
-                align="center"
-                justify="center"
-                id="contact">
+            <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
+                <NavBar />
                 <Box
                     borderRadius="lg"
                     m={{ base: 5, md: 16, lg: 10 }}

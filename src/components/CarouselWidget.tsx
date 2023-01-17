@@ -1,18 +1,16 @@
 import { Box, FlexProps, Flex, Stack } from "@chakra-ui/react";
 
 interface CarouselWidgetProps extends FlexProps {
-    background: string;
     children?: React.ReactNode;
 }
 
-const CarouselWidget = ({ background, children }: CarouselWidgetProps) => {
+const CarouselWidget = ({ children }: CarouselWidgetProps) => {
     return (
         <Box
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-            backgroundImage={`url(${background})`}
             minH={"100vh"}
         >
             <Flex justify="center" align={"center"} minH={"100vh"}>
