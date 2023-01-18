@@ -26,7 +26,7 @@ const Background = () => {
                 options={{
                     background: {
                         color: {
-                            value: useColorModeValue("#000000", "#FFFFFF"),
+                            value: useColorModeValue("#FFFFFF", "#000000"),
                         },
                     },
                     fpsLimit: 120,
@@ -54,10 +54,10 @@ const Background = () => {
                     },
                     particles: {
                         color: {
-                            value: useColorModeValue("#FFFFFF", "#000000"),
+                            value: useColorModeValue("#000000", "#FFFFFF"),
                         },
                         links: {
-                            color: useColorModeValue("#FFFFFF", "#000000"),
+                            color: useColorModeValue("#000000", "#FFFFFF"),
                             distance: 150,
                             enable: true,
                             opacity: 0.5,
@@ -73,7 +73,7 @@ const Background = () => {
                                 default: "bounce",
                             },
                             random: false,
-                            speed: 1,
+                            speed: 0.1,
                             straight: false,
                         },
                         number: {

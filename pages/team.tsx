@@ -1,20 +1,17 @@
 import {
     Box,
     Flex,
-    Text,
-    useColorModeValue,
     Image,
     SimpleGrid,
-    VStack,
-    Stack
+    Heading,
+    Text,
+    Center
 } from '@chakra-ui/react';
 import Background from '@components/Background';
 import PageTitle from '@components/PageTitle';
-
 import { NavBar } from '@sections/NavBar';
 
 const Team = () => {
-    const backgroundcolor = useColorModeValue('white', 'gray.800');
     const members = [
         {
             name: "Eugen Hasso",
@@ -26,6 +23,47 @@ const Team = () => {
             picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
             position: "Bauleiter",
         },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
+            position: "CEO",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
+            position: "Bauleiter",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
+            position: "CEO",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
+            position: "Bauleiter",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
+            position: "CEO",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
+            position: "Bauleiter",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
+            position: "CEO",
+        },
+        {
+            name: "Eugen Hasso",
+            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
+            position: "Bauleiter",
+        },
+
     ]
 
     return (
@@ -39,67 +77,51 @@ const Team = () => {
                     w={'full'}
                     minHeight="100vh"
                     height={"100%"}
-                    bgSize='cover'
-                    bgAttachment='fixed'
+                    p="10% 15%"
                 >
-                    <VStack
-                        w={'full'}
-                        minHeight="100vh"
-                        justify={'center'}
-                        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
-                    >
-                        <Stack
-                            width="100%"
-                            align={'flex-start'}
-                            pt="5em"
-                            pl="20%"
-                            pr="20%"
-                            pb="5em"
-                        >
-                            <Text fontSize={"4xl"} pb="1%" color={'white'}>Unser Team</Text>
-                            <SimpleGrid minChildWidth={["50%", "25%"]} spacing='5vh' width="100%">
-                                {members.map((member, index) => (
+                    <Center>
+                        <Heading fontSize={{ base: '2xl', md: '4xl' }} color={"white"} zIndex={1}>Unser Team</Heading>
+                    </Center>
+                    <SimpleGrid minChildWidth={["50%", "30%"]} spacing='3vh' width="100%">
+                        {members.map((member, index) => (
+                            <Flex
+                                key={index}
+                                backgroundColor={"rgba(16,16,16,0.9)"}
+                                p={"7%"}
+                                rounded={"lg"}
+                                borderRadius={"1%"}
+                                position={"relative"}
+                                flexDirection={"column"}
+                            >
+                                <Image
+                                    src={member.picture}
+                                    alt={``}
+                                    roundedTop="lg"
+                                    height="20vh"
+                                    width={"100%"}
+                                    objectFit="cover"
+                                />
+                                <Flex mt="1" justifyContent="space-between" alignContent="center">
                                     <Box
-                                        key={index}
-                                        bg={backgroundcolor}
-                                        borderWidth="1px"
-                                        rounded="lg"
-                                        shadow="lg"
-                                        position="relative"
+                                        fontSize="1xl"
+                                        fontWeight="semibold"
+                                        lineHeight="tight"
                                     >
-                                        <Box p="4%">
-                                            <Image
-                                                src={member.picture}
-                                                alt={``}
-                                                roundedTop="lg"
-                                                height="30vh"
-                                                width={"100%"}
-                                                objectFit="cover"
-                                            />
-                                            <Flex mt="1" justifyContent="space-between" alignContent="center">
-                                                <Box
-                                                    fontSize="1xl"
-                                                    fontWeight="semibold"
-                                                    lineHeight="tight"
-                                                >
-                                                    {member.name}
-                                                </Box>
-                                                <Box
-                                                    fontSize="1xl"
-                                                    fontWeight="semibold"
-                                                    lineHeight="tight"
-                                                >
-                                                    {member.position}
-                                                </Box>
-                                            </Flex>
-                                        </Box>
+                                        {member.name}
                                     </Box>
-                                ))}
-                            </SimpleGrid>
-                        </Stack>
-                    </VStack>
+                                    <Box
+                                        fontSize="1xl"
+                                        fontWeight="semibold"
+                                        lineHeight="tight"
+                                    >
+                                        {member.position}
+                                    </Box>
+                                </Flex>
+                            </Flex>
+                        ))}
+                    </SimpleGrid>
                 </Flex>
-            </Flex >
+            </Flex>
         </>
     );
 }

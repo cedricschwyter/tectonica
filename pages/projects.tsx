@@ -15,7 +15,7 @@ import Slider from 'react-slick';
 import Router from 'next/router';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { NavBar } from '@sections/NavBar';
-import CarouselWidget from '@components/CarouselWidget';
+import CenteredWidget from '@components/CenteredWidget';
 import PageTitle from '@components/PageTitle';
 import Background from '@components/Background';
 
@@ -53,8 +53,26 @@ const Projects = () => {
             file: pdfs[2],
         },
     ];
+    const StyleSheet = () => {
+        return (
+            <>
+                <link
+                    rel="stylesheet"
+                    type="text/css"
+                    charSet="UTF-8"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+                />
+                <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+                />
+            </>
+        )
+    }
     return (
         <>
+            <StyleSheet />
             <Background />
             <PageTitle title={"tectonica | Projekte"} />
             <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
@@ -64,17 +82,6 @@ const Projects = () => {
                     height={'100vh'}
                     width={'full'}
                     overflow={'hidden'}>
-                    <link
-                        rel="stylesheet"
-                        type="text/css"
-                        charSet="UTF-8"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-                    />
-                    <link
-                        rel="stylesheet"
-                        type="text/css"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-                    />
                     <IconButton
                         aria-label="left-arrow"
                         variant="ghost"
@@ -106,12 +113,12 @@ const Projects = () => {
                         ref={(slider) => setSlider(slider)}
                     >
                         {projects.map((project, index) => (
-                            <CarouselWidget key={index}>
+                            <CenteredWidget key={index}>
                                 <Flex flexDir={{ base: "column", md: "row-reverse" }}>
-                                    <Flex width={{ base: "100%", md: "80%" }}>
+                                    <Flex>
                                         <Image src={`/img/${project.file}.jpg`} alt="Preview" />
                                     </Flex>
-                                    <Flex flexDir={"column"} mr="2%">
+                                    <Flex flexDir={"column"} mr="2%" width={"100%"}>
                                         <Heading fontSize={{ base: '2xl', md: '4xl' }} color={"white"}>
                                             {project.title}
                                         </Heading>
@@ -124,9 +131,9 @@ const Projects = () => {
                                         </Button>
                                     </Flex>
                                 </Flex>
-                            </CarouselWidget>
+                            </CenteredWidget>
                         ))}
-                        <CarouselWidget key={4}>
+                        <CenteredWidget key={4}>
                             <Flex flexDir={"column"} mr="2%">
                                 <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} color={"white"}>
                                     Alle Projekte
@@ -139,7 +146,7 @@ const Projects = () => {
                                     }
                                 </Flex>
                             </Flex>
-                        </CarouselWidget>
+                        </CenteredWidget>
                     </Slider>
                 </Box>
             </Flex >

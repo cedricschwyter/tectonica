@@ -1,10 +1,11 @@
 import { Box, FlexProps, Flex, Stack } from "@chakra-ui/react";
 
-interface CarouselWidgetProps extends FlexProps {
+interface CenteredWidgetProps extends FlexProps {
+    width?: string;
     children?: React.ReactNode;
 }
 
-const CarouselWidget = ({ children }: CarouselWidgetProps) => {
+const CenteredWidget = ({ width = "60%", children }: CenteredWidgetProps) => {
     return (
         <Box
             position="relative"
@@ -15,7 +16,7 @@ const CarouselWidget = ({ children }: CarouselWidgetProps) => {
         >
             <Flex justify="center" align={"center"} minH={"100vh"}>
                 <Stack
-                    w={{ base: '90%', md: '70%' }}
+                    w={{ base: '90%', md: width }}
                 >
                     <Flex width={"100%"} backgroundColor={"rgba(16,16,16,0.9)"} p={"5%"} borderRadius={"1%"}>
                         {children}
@@ -25,4 +26,4 @@ const CarouselWidget = ({ children }: CarouselWidgetProps) => {
         </Box>
     )
 }
-export default CarouselWidget;
+export default CenteredWidget;

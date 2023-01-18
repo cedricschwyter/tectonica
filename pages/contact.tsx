@@ -1,6 +1,7 @@
 import {
     Box,
     Button,
+    Center,
     Flex,
     FormControl,
     FormLabel,
@@ -19,6 +20,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 import PageTitle from '@components/PageTitle';
 import { NavBar } from '@sections/NavBar';
 import Background from '@components/Background';
+import CenteredWidget from '@components/CenteredWidget';
 
 const Contact = () => {
     return (
@@ -27,75 +29,55 @@ const Contact = () => {
             <PageTitle title={"tectonica | Kontakt"} />
             <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
                 <NavBar />
-                <Box
-                    borderRadius="lg"
-                    m={{ base: 5, md: 16, lg: 10 }}
-                    p={{ base: 5, lg: 16 }}>
-                    <Box>
-                        <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-                            <Heading
-                                fontSize={{
-                                    base: '4xl',
-                                    md: '5xl',
-                                }}>
-                                Get in Touch
-                            </Heading>
-                            <Stack
-                                spacing={{ base: 4, md: 8, lg: 20 }}
-                                direction={{ base: 'column', md: 'row' }}>
-                                <Box
-                                    bg={useColorModeValue('white', 'gray.700')}
-                                    borderRadius="lg"
-                                    p={8}
-                                    color={useColorModeValue('gray.700', 'whiteAlpha.900')}
-                                    shadow="base">
-                                    <VStack spacing={5}>
-                                        <FormControl isRequired>
-                                            <FormLabel>Name</FormLabel>
-                                            <InputGroup>
-                                                <InputLeftElement><BsPerson /></InputLeftElement>
-                                                <Input type="text" name="name" placeholder="Your Name" />
-                                            </InputGroup>
-                                        </FormControl>
-                                        <FormControl isRequired>
-                                            <FormLabel>Email</FormLabel>
+                <CenteredWidget width='50%'>
+                    <Flex flexDirection={"column"} width={"100%"} alignContent={"center"}>
+                        <Center>
+                            <Heading fontSize={{ base: '3xl', md: '4xl' }}>Get in Touch</Heading>
+                        </Center>
+                        <VStack spacing={5} width={"100%"}>
+                            <FormControl isRequired>
+                                <FormLabel>Name</FormLabel>
+                                <InputGroup>
+                                    <InputLeftElement><BsPerson /></InputLeftElement>
+                                    <Input type="text" name="name" placeholder="Your Name" />
+                                </InputGroup>
+                            </FormControl>
+                            <FormControl isRequired>
+                                <FormLabel>Email</FormLabel>
 
-                                            <InputGroup>
-                                                <InputLeftElement><MdOutlineEmail /></InputLeftElement>
-                                                <Input
-                                                    type="email"
-                                                    name="email"
-                                                    placeholder="Your Email"
-                                                />
-                                            </InputGroup>
-                                        </FormControl>
-                                        <FormControl isRequired>
-                                            <FormLabel>Message</FormLabel>
+                                <InputGroup>
+                                    <InputLeftElement><MdOutlineEmail /></InputLeftElement>
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Your Email"
+                                    />
+                                </InputGroup>
+                            </FormControl>
+                            <FormControl isRequired>
+                                <FormLabel>Message</FormLabel>
 
-                                            <Textarea
-                                                name="message"
-                                                placeholder="Your Message"
-                                                rows={6}
-                                                resize="none"
-                                            />
-                                        </FormControl>
-                                        <Button
-                                            colorScheme="blue"
-                                            bg="blue.400"
-                                            color="white"
-                                            _hover={{
-                                                bg: 'blue.500',
-                                            }}
-                                        >
-                                            Send Message
-                                        </Button>
-                                    </VStack>
-                                </Box>
-                            </Stack>
+                                <Textarea
+                                    name="message"
+                                    placeholder="Your Message"
+                                    rows={6}
+                                    resize="none"
+                                />
+                            </FormControl>
+                            <Button
+                                colorScheme="blue"
+                                bg="blue.400"
+                                color="white"
+                                _hover={{
+                                    bg: 'blue.500',
+                                }}
+                            >
+                                Send Message
+                            </Button>
                         </VStack>
-                    </Box>
-                </Box>
-            </Flex>
+                    </Flex>
+                </CenteredWidget>
+            </Flex >
         </>
     );
 }
