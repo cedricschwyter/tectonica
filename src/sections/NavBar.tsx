@@ -13,7 +13,7 @@ import {
 import {
     HamburgerIcon,
 } from '@chakra-ui/icons';
-import Router from 'next/router';
+import NextLink from 'next/link';
 
 export const NavBar = () => {
     return (
@@ -33,7 +33,7 @@ export const NavBar = () => {
                 <Flex flex={{ base: 1 }} justify={"start"}>
                     <Text
                         textAlign={["left", "center", "center"]}
-                        fontSize="3xl">
+                        fontSize="3xl" as={NextLink} href={"/"}>
                         tectonica
                     </Text>
                 </Flex>
@@ -51,12 +51,12 @@ export const NavBar = () => {
                             minW={0}>
                             <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
-                        <MenuList bgColor='black' >
-                            <MenuItem bgColor='black' onClick={() => Router.push('/projects')}>Projekte</MenuItem>
-                            <MenuItem bgColor='black' onClick={() => Router.push('/team')}>Team</MenuItem>
-                            <MenuItem bgColor='black' onClick={() => Router.push('/jobs')}>Jobs</MenuItem>
+                        <MenuList bgColor='black' flexDir={"column"}>
+                            <Button bgColor='black' w="100%" as={NextLink} href={'/projects'}>Projekte</Button>
+                            <Button bgColor='black' w="100%" as={NextLink} href={'/team'}>Team</Button>
+                            <Button bgColor='black' w="100%" as={NextLink} href={'/jobs'}>Jobs</Button>
                             <MenuDivider />
-                            <MenuItem bgColor='black' onClick={() => Router.push('/contact')}>Kontakt</MenuItem>
+                            <Button bgColor='black' w="100%" as={NextLink} href={'/contact'}>Kontakt</Button>
                         </MenuList>
                     </Menu>
                 </Stack>

@@ -31,6 +31,18 @@
       "@sections": [
         "./src/sections"
       ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@components": [
+        "./src/components"
+      ],
+      "@definitions/*": [
+        "./src/definitions/*"
+      ],
+      "@definitions": [
+        "./src/definitions"
+      ],
     },
   },
   "include": [
