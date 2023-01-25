@@ -8,10 +8,11 @@ import {
     SimpleGrid
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { NavBar } from '@sections/NavBar';
 import Footer from '@sections/Footer';
 import PageTitle from '@components/PageTitle';
+import { motion, useAnimation } from "framer-motion";
 
 interface FeatureProps {
     title: string;
@@ -38,66 +39,84 @@ const Feature = ({ title, icon }: FeatureProps) => {
 };
 
 const LandingPage = () => {
+    const animation = useAnimation();
+    animation.start({ opacity: 0, x: 0 });
+    useEffect(() => {
+        const handleScroll = () => {
+            const scroll = window.scrollY;
+            animation.start({
+                opacity: scroll / 100,
+            });
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
             <Flex flexDirection="column">
                 <NavBar />
-                <Flex
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}
-                >
+                <motion.div animate={animation}>
+                    <Flex
+                        w={'full'}
+                        h={'100vh'}
+                        backgroundImage={
+                            'url(https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
+                        }
+                        backgroundSize={'cover'}
+                        backgroundPosition={'center center'}
+                    >
 
-                    <VStack
+                        <VStack
+                            w={'full'}
+                            justify={'center'}
+                            px={useBreakpointValue({ base: 4, md: 8 })}
+                            bgGradient={'radial(blackAlpha.700, transparent)'}>
+                            <Stack
+                                maxW={'2xl'}
+                                align={'flex-start'}
+                                spacing={6}
+                                p={'10vh'}>
+                                <Text
+                                    color={'white'}
+                                    fontWeight={700}
+                                    lineHeight={1.2}
+                                    fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                                    eiusmod tempor
+                                </Text>
+                            </Stack>
+                        </VStack>
+                    </Flex>
+                </motion.div>
+                <motion.div animate={animation}>
+                    <Flex
                         w={'full'}
-                        justify={'center'}
-                        px={useBreakpointValue({ base: 4, md: 8 })}
-                        bgGradient={'radial(blackAlpha.700, transparent)'}>
-                        <Stack
-                            maxW={'2xl'}
-                            align={'flex-start'}
-                            spacing={6}
-                            p={'10vh'}>
-                            <Text
-                                color={'white'}
-                                fontWeight={700}
-                                lineHeight={1.2}
-                                fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                                eiusmod tempor
-                            </Text>
-                        </Stack>
-                    </VStack>
-                </Flex>
-                <Flex
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}>
-                    <VStack
-                        w={'full'}
-                        justify={'center'}
-                        px={useBreakpointValue({ base: 4, md: 8 })}
-                        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                            <Text
-                                color={'white'}
-                                fontWeight={700}
-                                lineHeight={1.2}
-                                fontSize="xl">
-                                Vorstellung
-                            </Text>
-                        </Stack>
-                    </VStack>
-                </Flex>
+                        h={'100vh'}
+                        backgroundImage={
+                            'url(https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
+                        }
+                        backgroundSize={'cover'}
+                        backgroundPosition={'center center'}>
+                        <VStack
+                            w={'full'}
+                            justify={'center'}
+                            px={useBreakpointValue({ base: 4, md: 8 })}
+                            bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                                <Text
+                                    color={'white'}
+                                    fontWeight={700}
+                                    lineHeight={1.2}
+                                    fontSize="xl">
+                                    Vorstellung
+                                </Text>
+                            </Stack>
+                        </VStack>
+                    </Flex>
+                </motion.div>
                 <Flex
                     w={'full'}
                     h={'100vh'}
