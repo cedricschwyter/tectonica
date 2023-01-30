@@ -4,16 +4,19 @@ import {
     Stack,
     Icon,
     useBreakpointValue,
-    SimpleGrid
+    SimpleGrid,
+    Heading,
+    Spinner
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 import { ReactElement, useEffect } from 'react';
 import { NavBar } from '@sections/NavBar';
 import Footer from '@sections/Footer';
 import PageTitle from '@components/PageTitle';
-import { useAnimation } from "framer-motion";
+import { MotionConfig, motion, useAnimation } from "framer-motion";
 import SectionLanding from '@components/SectionLanding';
 import { isMobile } from 'react-device-detect';
+import Background from '@components/Background';
 
 interface FeatureProps {
     title: string;
@@ -41,6 +44,7 @@ const Feature = ({ title, icon }: FeatureProps) => {
 
 const LandingPage = () => {
     let page = 1;
+    const animationLoading = useAnimation();
     const animation1 = useAnimation();
     const animation2 = useAnimation();
     const animation3 = useAnimation();
@@ -108,7 +112,9 @@ const LandingPage = () => {
         }
     };
     useEffect(() => {
-        console.log(window.screen)
+        animationLoading.start({
+            opacity: 0
+        })
         window.addEventListener("wheel", handleScroll);
         return () => {
             window.removeEventListener("wheel", handleScroll);
@@ -117,6 +123,12 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
+            <motion.div animate={animationLoading} transition={{ delay: 0.5 }} >
+                <Flex position={"fixed"} w={"100vw"} h={"100vh"} backgroundColor={"black"} justify={'center'} align={'center'} zIndex={10} flexDirection={"column"}>
+                    <Heading pb="10vh">tectonica</Heading>
+                    <Spinner size={"xl"} />
+                </Flex>
+            </motion.div>
             <Flex flexDirection="column">
                 <NavBar />
                 <SectionLanding animation={animation1} image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'>
