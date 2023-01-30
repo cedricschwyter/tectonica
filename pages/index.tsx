@@ -44,8 +44,9 @@ interface SectionLandingProps {
     image: string;
     children?: React.ReactNode;
     animation: AnimationControls;
+    zIndex?: number;
 }
-const SectionLanding = ({ image, children, animation }: SectionLandingProps) => {
+const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandingProps) => {
     return (
         <motion.div animate={animation}>
             <Flex
@@ -57,6 +58,7 @@ const SectionLanding = ({ image, children, animation }: SectionLandingProps) => 
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}
                 position={{ base: "static", md: "fixed" }}
+                zIndex={zIndex}
             >
                 <VStack
                     w={'full'}
@@ -73,17 +75,10 @@ const SectionLanding = ({ image, children, animation }: SectionLandingProps) => 
 }
 const LandingPage = () => {
     let page = 1;
-    const animationLoading = useAnimation();
     const animation1 = useAnimation();
     const animation2 = useAnimation();
     const animation3 = useAnimation();
     const animation4 = useAnimation();
-    if (!isMobile) {
-        animation1.start({ opacity: 1 });
-        animation2.start({ opacity: 0 });
-        animation3.start({ opacity: 0 });
-        animation4.start({ opacity: 0 });
-    }
     const handleScroll = (e) => {
         if (e.deltaY > 0) {
             if (page == 1) {
@@ -141,9 +136,6 @@ const LandingPage = () => {
         }
     };
     useEffect(() => {
-        animationLoading.start({
-            opacity: 0
-        })
         window.addEventListener("wheel", handleScroll);
         return () => {
             window.removeEventListener("wheel", handleScroll);
@@ -152,7 +144,7 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
-            <motion.div animate={animationLoading} transition={{ delay: 0.5 }} >
+            <motion.div initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ delay: 0.5 }} >
                 <Flex
                     position={"fixed"}
                     w={"100vw"}
@@ -170,6 +162,7 @@ const LandingPage = () => {
             <Flex flexDirection="column">
                 <NavBar />
                 <SectionLanding
+                    zIndex={1}
                     animation={animation1}
                     image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
                 >

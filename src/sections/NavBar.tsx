@@ -21,7 +21,7 @@ export const NavBar = () => {
             position={["absolute", "fixed"]}
             width="100%"
             padding={["0%", "2%"]}
-            zIndex={1}
+            zIndex={2}
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}

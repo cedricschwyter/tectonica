@@ -46,7 +46,7 @@ export default function Footer() {
     return (
         <Box
             backdropBlur='8px'
-            zIndex={1}
+            zIndex={2}
             position={["absolute", "fixed"]}
             width={"100%"}
             bottom={0}
