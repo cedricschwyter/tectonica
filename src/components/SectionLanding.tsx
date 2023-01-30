@@ -17,7 +17,7 @@ const SectionLanding = ({ image, children, animation }: SectionLandingProps) => 
                 }
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}
-                position={"fixed"}
+                position={{ base: "static", md: "fixed" }}
             >
                 <VStack
                     w={'full'}

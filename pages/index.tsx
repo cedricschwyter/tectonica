@@ -4,16 +4,16 @@ import {
     Stack,
     Icon,
     useBreakpointValue,
-    VStack,
     SimpleGrid
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { NavBar } from '@sections/NavBar';
 import Footer from '@sections/Footer';
 import PageTitle from '@components/PageTitle';
-import { motion, useAnimation } from "framer-motion";
+import { useAnimation } from "framer-motion";
 import SectionLanding from '@components/SectionLanding';
+import { isMobile } from 'react-device-detect';
 
 interface FeatureProps {
     title: string;
@@ -45,10 +45,12 @@ const LandingPage = () => {
     const animation2 = useAnimation();
     const animation3 = useAnimation();
     const animation4 = useAnimation();
-    animation1.start({ opacity: 1 });
-    animation2.start({ opacity: 0 });
-    animation3.start({ opacity: 0 });
-    animation4.start({ opacity: 0 });
+    if (!isMobile) {
+        animation1.start({ opacity: 1 });
+        animation2.start({ opacity: 0 });
+        animation3.start({ opacity: 0 });
+        animation4.start({ opacity: 0 });
+    }
     const handleScroll = (e) => {
         if (e.deltaY > 0) {
             if (page == 1) {
@@ -106,11 +108,10 @@ const LandingPage = () => {
         }
     };
     useEffect(() => {
+        console.log(window.screen)
         window.addEventListener("wheel", handleScroll);
-        window.addEventListener("touchmove", handleScroll);
         return () => {
             window.removeEventListener("wheel", handleScroll);
-            window.removeEventListener("touchmove", handleScroll);
         };
     }, []);
     return (
