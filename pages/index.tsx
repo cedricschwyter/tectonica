@@ -6,17 +6,16 @@ import {
     useBreakpointValue,
     SimpleGrid,
     Heading,
-    Spinner
+    Spinner,
+    VStack
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 import { ReactElement, useEffect } from 'react';
 import { NavBar } from '@sections/NavBar';
 import Footer from '@sections/Footer';
 import PageTitle from '@components/PageTitle';
-import { MotionConfig, motion, useAnimation } from "framer-motion";
-import SectionLanding from '@components/SectionLanding';
+import { AnimationControls, motion, useAnimation } from "framer-motion";
 import { isMobile } from 'react-device-detect';
-import Background from '@components/Background';
 
 interface FeatureProps {
     title: string;
@@ -41,7 +40,37 @@ const Feature = ({ title, icon }: FeatureProps) => {
         </Stack>
     );
 };
-
+interface SectionLandingProps {
+    image: string;
+    children?: React.ReactNode;
+    animation: AnimationControls;
+}
+const SectionLanding = ({ image, children, animation }: SectionLandingProps) => {
+    return (
+        <motion.div animate={animation}>
+            <Flex
+                w={'full'}
+                h={'100vh'}
+                backgroundImage={
+                    'url(' + image + ')'
+                }
+                backgroundSize={'cover'}
+                backgroundPosition={'center center'}
+                position={{ base: "static", md: "fixed" }}
+            >
+                <VStack
+                    w={'full'}
+                    justify={'center'}
+                    px={useBreakpointValue({ base: 4, md: 8 })}
+                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                        {children}
+                    </Stack>
+                </VStack>
+            </Flex>
+        </motion.div>
+    )
+}
 const LandingPage = () => {
     let page = 1;
     const animationLoading = useAnimation();
@@ -124,47 +153,72 @@ const LandingPage = () => {
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
             <motion.div animate={animationLoading} transition={{ delay: 0.5 }} >
-                <Flex position={"fixed"} w={"100vw"} h={"100vh"} backgroundColor={"black"} justify={'center'} align={'center'} zIndex={10} flexDirection={"column"}>
+                <Flex
+                    position={"fixed"}
+                    w={"100vw"}
+                    h={"100vh"}
+                    backgroundColor={"black"}
+                    justify={'center'}
+                    align={'center'}
+                    zIndex={10}
+                    flexDirection={"column"}
+                >
                     <Heading pb="10vh">tectonica</Heading>
                     <Spinner size={"xl"} />
                 </Flex>
             </motion.div>
             <Flex flexDirection="column">
                 <NavBar />
-                <SectionLanding animation={animation1} image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'>
+                <SectionLanding
+                    animation={animation1}
+                    image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
+                >
                     <Text
                         color={'white'}
                         fontWeight={700}
                         lineHeight={1.2}
-                        fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+                        fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+                    >
                         Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
                         eiusmod tempor
                     </Text>
                 </SectionLanding>
-                <SectionLanding animation={animation2} image='https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'>
+                <SectionLanding
+                    animation={animation2}
+                    image='https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
+                >
                     <Text
                         color={'white'}
                         fontWeight={700}
                         lineHeight={1.2}
-                        fontSize="xl">
+                        fontSize="xl"
+                    >
                         Vorstellung
                     </Text>
                 </SectionLanding>
-                <SectionLanding animation={animation3} image='https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true'>
+                <SectionLanding
+                    animation={animation3}
+                    image='https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true'
+                >
                     <Text
                         color={'white'}
                         fontWeight={700}
                         lineHeight={1.2}
-                        fontSize="xl">
+                        fontSize="xl"
+                    >
                         Philosophie
                     </Text>
                 </SectionLanding>
-                <SectionLanding animation={animation4} image='https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true'>
+                <SectionLanding
+                    animation={animation4}
+                    image='https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true'
+                >
                     <Text
                         color={'white'}
                         fontWeight={700}
                         lineHeight={1.2}
-                        fontSize="xl">
+                        fontSize="xl"
+                    >
                         Vision
                     </Text>
                     <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
