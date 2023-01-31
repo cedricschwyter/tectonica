@@ -4,14 +4,18 @@ import {
     Stack,
     Icon,
     useBreakpointValue,
-    VStack,
-    SimpleGrid
+    SimpleGrid,
+    Heading,
+    Spinner,
+    VStack
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { NavBar } from '@sections/NavBar';
 import Footer from '@sections/Footer';
 import PageTitle from '@components/PageTitle';
+import { AnimationControls, motion, useAnimation } from "framer-motion";
+import { isMobile } from 'react-device-detect';
 
 interface FeatureProps {
     title: string;
@@ -36,130 +40,195 @@ const Feature = ({ title, icon }: FeatureProps) => {
         </Stack>
     );
 };
-
+interface SectionLandingProps {
+    image: string;
+    children?: React.ReactNode;
+    animation: AnimationControls;
+    zIndex?: number;
+}
+const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandingProps) => {
+    return (
+        <motion.div animate={animation}>
+            <Flex
+                w={'full'}
+                h={'100vh'}
+                backgroundImage={
+                    'url(' + image + ')'
+                }
+                backgroundSize={'cover'}
+                backgroundPosition={'center center'}
+                position={{ base: "static", md: "fixed" }}
+                zIndex={zIndex}
+            >
+                <VStack
+                    w={'full'}
+                    justify={'center'}
+                    px={useBreakpointValue({ base: 4, md: 8 })}
+                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                        {children}
+                    </Stack>
+                </VStack>
+            </Flex>
+        </motion.div>
+    )
+}
 const LandingPage = () => {
+    let page = 1;
+    const animation1 = useAnimation();
+    const animation2 = useAnimation();
+    const animation3 = useAnimation();
+    const animation4 = useAnimation();
+    const handleScroll = (e) => {
+        if (e.deltaY > 0) {
+            if (page == 1) {
+                animation1.start({
+                    opacity: 0
+                });
+                animation2.start({
+                    opacity: 1
+                });
+                page++;
+            } else if (page == 2) {
+                animation2.start({
+                    opacity: 0
+                });
+                animation3.start({
+                    opacity: 1
+                });
+                page++;
+            } else if (page == 3) {
+                animation3.start({
+                    opacity: 0
+                });
+                animation4.start({
+                    opacity: 1
+                });
+                page++;
+            }
+        }
+        if (e.deltaY < 0) {
+            if (page == 2) {
+                animation1.start({
+                    opacity: 1
+                })
+                animation2.start({
+                    opacity: 0
+                })
+                page--;
+            } else if (page == 3) {
+                animation2.start({
+                    opacity: 1
+                })
+                animation3.start({
+                    opacity: 0
+                })
+                page--;
+            } else if (page == 4) {
+                animation3.start({
+                    opacity: 1
+                })
+                animation4.start({
+                    opacity: 0
+                })
+                page--;
+            }
+        }
+    };
+    useEffect(() => {
+        window.addEventListener("wheel", handleScroll);
+        return () => {
+            window.removeEventListener("wheel", handleScroll);
+        };
+    }, []);
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
+            <motion.div initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ delay: 0.5 }} >
+                <Flex
+                    position={"fixed"}
+                    w={"100vw"}
+                    h={"100vh"}
+                    backgroundColor={"black"}
+                    justify={'center'}
+                    align={'center'}
+                    zIndex={10}
+                    flexDirection={"column"}
+                >
+                    <Heading pb="10vh">tectonica</Heading>
+                    <Spinner size={"xl"} />
+                </Flex>
+            </motion.div>
             <Flex flexDirection="column">
                 <NavBar />
-                <Flex
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}
+                <SectionLanding
+                    zIndex={1}
+                    animation={animation1}
+                    image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
                 >
-
-                    <VStack
-                        w={'full'}
-                        justify={'center'}
-                        px={useBreakpointValue({ base: 4, md: 8 })}
-                        bgGradient={'radial(blackAlpha.700, transparent)'}>
-                        <Stack
-                            maxW={'2xl'}
-                            align={'flex-start'}
-                            spacing={6}
-                            p={'10vh'}>
-                            <Text
-                                color={'white'}
-                                fontWeight={700}
-                                lineHeight={1.2}
-                                fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                                eiusmod tempor
-                            </Text>
-                        </Stack>
-                    </VStack>
-                </Flex>
-                <Flex
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}>
-                    <VStack
-                        w={'full'}
-                        justify={'center'}
-                        px={useBreakpointValue({ base: 4, md: 8 })}
-                        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                            <Text
-                                color={'white'}
-                                fontWeight={700}
-                                lineHeight={1.2}
-                                fontSize="xl">
-                                Vorstellung
-                            </Text>
-                        </Stack>
-                    </VStack>
-                </Flex>
-                <Flex
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true)'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}>
-                    <VStack
-                        w={'full'}
-                        justify={'center'}
-                        px={useBreakpointValue({ base: 4, md: 8 })}
-                        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                            <Text
-                                color={'white'}
-                                fontWeight={700}
-                                lineHeight={1.2}
-                                fontSize="xl">
-                                Philosophie
-                            </Text>
-                        </Stack>
-                    </VStack>
-                </Flex>
-                <Flex
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true)'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}>
-                    <VStack
-                        w={'full'}
-                        justify={'center'}
-                        px={useBreakpointValue({ base: 4, md: 8 })}
-                        bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                            <Text
-                                color={'white'}
-                                fontWeight={700}
-                                lineHeight={1.2}
-                                fontSize="xl">
-                                Vision
-                            </Text>
-                            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-                                <Feature
-                                    icon={<Icon as={FcAssistant} w={10} h={10} />}
-                                    title={'Augenhöhe (Rhigetti Partner)'}
-                                />
-                                <Feature
-                                    icon={<Icon as={FcDonate} w={10} h={10} />}
-                                    title={'Denken auch ausserhalb des normalen Rahmens'}
-                                />
-                                <Feature
-                                    icon={<Icon as={FcInTransit} w={10} h={10} />}
-                                    title={'Den Ernst in die Sache investieren nicht in die Person'}
-                                />
-                            </SimpleGrid>
-                        </Stack>
-                    </VStack>
-                </Flex>
+                    <Text
+                        color={'white'}
+                        fontWeight={700}
+                        lineHeight={1.2}
+                        fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+                    >
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                        eiusmod tempor
+                    </Text>
+                </SectionLanding>
+                <SectionLanding
+                    animation={animation2}
+                    image='https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
+                >
+                    <Text
+                        color={'white'}
+                        fontWeight={700}
+                        lineHeight={1.2}
+                        fontSize="xl"
+                    >
+                        Vorstellung
+                    </Text>
+                </SectionLanding>
+                <SectionLanding
+                    animation={animation3}
+                    image='https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true'
+                >
+                    <Text
+                        color={'white'}
+                        fontWeight={700}
+                        lineHeight={1.2}
+                        fontSize="xl"
+                    >
+                        Philosophie
+                    </Text>
+                </SectionLanding>
+                <SectionLanding
+                    animation={animation4}
+                    image='https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true'
+                >
+                    <Text
+                        color={'white'}
+                        fontWeight={700}
+                        lineHeight={1.2}
+                        fontSize="xl"
+                    >
+                        Vision
+                    </Text>
+                    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+                        <Feature
+                            icon={<Icon as={FcAssistant} w={10} h={10} />}
+                            title={'Augenhöhe (Rhigetti Partner)'}
+                        />
+                        <Feature
+                            icon={<Icon as={FcDonate} w={10} h={10} />}
+                            title={'Denken auch ausserhalb des normalen Rahmens'}
+                        />
+                        <Feature
+                            icon={<Icon as={FcInTransit} w={10} h={10} />}
+                            title={'Den Ernst in die Sache investieren nicht in die Person'}
+                        />
+                    </SimpleGrid>
+                </SectionLanding>
                 <Footer />
             </Flex>
         </>
