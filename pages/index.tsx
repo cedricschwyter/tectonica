@@ -48,7 +48,7 @@ interface SectionLandingProps {
 }
 const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandingProps) => {
     return (
-        <motion.div animate={animation}>
+        <motion.div initial={isMobile && { opacity: 1 } || { opacity: 0 }} animate={animation}>
             <Flex
                 w={'full'}
                 h={'100vh'}
@@ -136,6 +136,9 @@ const LandingPage = () => {
         }
     };
     useEffect(() => {
+        animation1.start({
+            opacity: 1
+        });
         window.addEventListener("wheel", handleScroll);
         return () => {
             window.removeEventListener("wheel", handleScroll);
