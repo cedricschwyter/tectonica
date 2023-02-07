@@ -18,6 +18,7 @@ import { NavBar } from '@sections/NavBar';
 import CenteredWidget from '@components/CenteredWidget';
 import PageTitle from '@components/PageTitle';
 import Background from '@components/Background';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
     const [slider, setSlider] = React.useState<Slider | null>(null);
@@ -71,7 +72,7 @@ const Projects = () => {
         )
     }
     return (
-        <>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
             <StyleSheet />
             <Background />
             <PageTitle title={"tectonica | Projekte"} />
@@ -150,7 +151,7 @@ const Projects = () => {
                     </Slider>
                 </Box>
             </Flex >
-        </>
+        </motion.div>
     );
 }
 

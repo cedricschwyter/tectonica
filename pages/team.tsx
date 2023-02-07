@@ -10,6 +10,7 @@ import {
 import Background from '@components/Background';
 import PageTitle from '@components/PageTitle';
 import { NavBar } from '@sections/NavBar';
+import { motion } from 'framer-motion';
 
 const Team = () => {
     const members = [
@@ -26,7 +27,7 @@ const Team = () => {
     ]
 
     return (
-        <>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
             <Background />
             <PageTitle title={"tectonica | Team"} />
             <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
@@ -81,7 +82,7 @@ const Team = () => {
                     </SimpleGrid>
                 </Flex>
             </Flex>
-        </>
+        </motion.div >
     );
 }
 
