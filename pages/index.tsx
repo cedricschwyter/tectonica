@@ -48,7 +48,7 @@ interface SectionLandingProps {
 }
 const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandingProps) => {
     return (
-        <motion.div animate={animation}>
+        <motion.div initial={isMobile && { opacity: 1 } || { opacity: 0 }} animate={animation}>
             <Flex
                 w={'full'}
                 h={'100vh'}
@@ -136,6 +136,9 @@ const LandingPage = () => {
         }
     };
     useEffect(() => {
+        animation1.start({
+            opacity: 1
+        })
         window.addEventListener("wheel", handleScroll);
         return () => {
             window.removeEventListener("wheel", handleScroll);
@@ -144,25 +147,9 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
-            <motion.div initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ delay: 0.5 }} >
-                <Flex
-                    position={"fixed"}
-                    w={"100vw"}
-                    h={"100vh"}
-                    backgroundColor={"black"}
-                    justify={'center'}
-                    align={'center'}
-                    zIndex={10}
-                    flexDirection={"column"}
-                >
-                    <Heading pb="10vh">tectonica</Heading>
-                    <Spinner size={"xl"} />
-                </Flex>
-            </motion.div>
             <Flex flexDirection="column">
                 <NavBar />
                 <SectionLanding
-                    zIndex={1}
                     animation={animation1}
                     image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
                 >

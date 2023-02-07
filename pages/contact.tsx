@@ -21,10 +21,11 @@ import PageTitle from '@components/PageTitle';
 import { NavBar } from '@sections/NavBar';
 import Background from '@components/Background';
 import CenteredWidget from '@components/CenteredWidget';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
     return (
-        <>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
             <Background />
             <PageTitle title={"tectonica | Kontakt"} />
             <Flex flexDirection="column" w={'full'} minHeight="100vh" height="100%">
@@ -78,7 +79,7 @@ const Contact = () => {
                     </Flex>
                 </CenteredWidget>
             </Flex >
-        </>
+        </motion.div>
     );
 }
 export default Contact;
