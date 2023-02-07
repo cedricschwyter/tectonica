@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 
 const Background = () => {
     const particlesInit = useCallback(async (engine: Engine) => {
@@ -30,28 +30,6 @@ const Background = () => {
                         },
                     },
                     fpsLimit: 120,
-                    interactivity: {
-                        events: {
-                            onClick: {
-                                enable: true,
-                                mode: "push",
-                            },
-                            onHover: {
-                                enable: true,
-                                mode: "repulse",
-                            },
-                            resize: true,
-                        },
-                        modes: {
-                            push: {
-                                quantity: 4,
-                            },
-                            repulse: {
-                                distance: 50,
-                                duration: 0.4,
-                            },
-                        },
-                    },
                     particles: {
                         color: {
                             value: useColorModeValue("#000000", "#FFFFFF"),
@@ -73,7 +51,7 @@ const Background = () => {
                                 default: "bounce",
                             },
                             random: false,
-                            speed: 0.1,
+                            speed: 0.3,
                             straight: false,
                         },
                         number: {

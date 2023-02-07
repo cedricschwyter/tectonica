@@ -23,47 +23,6 @@ const Team = () => {
             picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
             position: "Bauleiter",
         },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
-            position: "CEO",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
-            position: "Bauleiter",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
-            position: "CEO",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
-            position: "Bauleiter",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
-            position: "CEO",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
-            position: "Bauleiter",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/0Zx1bDv5BNY/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY5MTk1NDk0&force=true",
-            position: "CEO",
-        },
-        {
-            name: "Eugen Hasso",
-            picture: "https://unsplash.com/photos/HzDF-rxlSeM/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8d29yayUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTIwMzU0MA&force=true",
-            position: "Bauleiter",
-        },
-
     ]
 
     return (
@@ -80,14 +39,14 @@ const Team = () => {
                     p="10% 15%"
                 >
                     <Center>
-                        <Heading fontSize={{ base: '2xl', md: '4xl' }} color={"white"} zIndex={1}>Unser Team</Heading>
+                        <Heading fontSize={{ base: '2xl', md: '4xl' }} color={"white"} pb={{ base: '1vh', md: '5vh' }} pt={{ base: '4vh', md: '' }} zIndex={1}>Unser Team</Heading>
                     </Center>
-                    <SimpleGrid minChildWidth={["50%", "30%"]} spacing='3vh' width="100%">
+                    <SimpleGrid minChildWidth={["50%", "30%"]} spacing={{ base: '2vh', md: '3vh' }} width="100%">
                         {members.map((member, index) => (
                             <Flex
                                 key={index}
                                 backgroundColor={"rgba(16,16,16,0.9)"}
-                                p={"7%"}
+                                p={"2vh"}
                                 rounded={"lg"}
                                 borderRadius={"1%"}
                                 position={"relative"}
@@ -97,7 +56,7 @@ const Team = () => {
                                     src={member.picture}
                                     alt={``}
                                     roundedTop="lg"
-                                    height="20vh"
+                                    height="30vh"
                                     width={"100%"}
                                     objectFit="cover"
                                 />
