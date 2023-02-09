@@ -43,12 +43,11 @@ const Feature = ({ title, icon }: FeatureProps) => {
 interface SectionLandingProps {
     image: string;
     children?: React.ReactNode;
-    animation: AnimationControls;
+    animation?: AnimationControls;
     zIndex?: number;
 }
-const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandingProps) => {
+const SectionLanding = ({ image, children, zIndex = 0 }: SectionLandingProps) => {
     return (
-        <motion.div initial={isMobile && { opacity: 1 } || { opacity: 0 }} animate={animation}>
             <Flex
                 w={'full'}
                 h={'100vh'}
@@ -57,7 +56,7 @@ const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandi
                 }
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}
-                position={{ base: "static", md: "fixed" }}
+                position={{ base: "static"}}
                 zIndex={zIndex}
             >
                 <VStack
@@ -70,10 +69,10 @@ const SectionLanding = ({ image, children, animation, zIndex = 0 }: SectionLandi
                     </Stack>
                 </VStack>
             </Flex>
-        </motion.div>
     )
 }
 const LandingPage = () => {
+    /*
     let page = 1;
     const animation1 = useAnimation();
     const animation2 = useAnimation();
@@ -144,13 +143,14 @@ const LandingPage = () => {
             window.removeEventListener("wheel", handleScroll);
         };
     }, []);
+
+    */
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
             <Flex flexDirection="column">
                 <NavBar />
                 <SectionLanding
-                    animation={animation1}
                     image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
                 >
                     <Text
@@ -164,7 +164,6 @@ const LandingPage = () => {
                     </Text>
                 </SectionLanding>
                 <SectionLanding
-                    animation={animation2}
                     image='https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
                 >
                     <Text
@@ -177,7 +176,6 @@ const LandingPage = () => {
                     </Text>
                 </SectionLanding>
                 <SectionLanding
-                    animation={animation3}
                     image='https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true'
                 >
                     <Text
@@ -190,7 +188,6 @@ const LandingPage = () => {
                     </Text>
                 </SectionLanding>
                 <SectionLanding
-                    animation={animation4}
                     image='https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true'
                 >
                     <Text

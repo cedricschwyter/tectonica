@@ -17,16 +17,12 @@ import NextLink from 'next/link';
 
 export const NavBar = () => {
     return (
-        <Box
-            position={["absolute", "fixed"]}
-            width="100%"
-            padding={["0%", "2%"]}
-            zIndex={2}
+        <div
+            className='fixed top-0 mr-3 rounded bg-black/25 backdrop-blur-md w-full z-50'
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
                 color={'white'}
-                minH={'60px'}
                 py={{ base: 2 }}
                 px={{ base: 4 }}
                 align={'center'}>
@@ -37,7 +33,14 @@ export const NavBar = () => {
                         tectonica
                     </Text>
                 </Flex>
+                <div className='hidden sm:flex w-full sm:w-1/2 md:w-2/6 gap-2 text-white'>
+                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/projects'}>Projects</NextLink>
+                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
+                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
+                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/contact'}>Contact</NextLink>
+                </div>
                 <Stack
+                    className='sm:!hidden block'
                     flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}
                     direction={'row'}
@@ -51,16 +54,15 @@ export const NavBar = () => {
                             minW={0}>
                             <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
-                        <MenuList bgColor='black' flexDir={"column"}>
-                            <Button bgColor='black' w="100%" as={NextLink} href={'/projects'}>Projekte</Button>
-                            <Button bgColor='black' w="100%" as={NextLink} href={'/team'}>Team</Button>
-                            <Button bgColor='black' w="100%" as={NextLink} href={'/jobs'}>Jobs</Button>
-                            <MenuDivider />
-                            <Button bgColor='black' w="100%" as={NextLink} href={'/contact'}>Kontakt</Button>
+                        <MenuList className='!bg-slate-900 p-6' flexDir={"column"}>
+                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/projects'}>Projects</NextLink>
+                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/team'}>Team</NextLink>
+                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/jobs'}>Jobs</NextLink>
+                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/contact'}>Contact</NextLink>
                         </MenuList>
                     </Menu>
                 </Stack>
             </Flex>
-        </Box >
+        </div>
     )
 }
