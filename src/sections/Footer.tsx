@@ -50,6 +50,7 @@ export default function Footer() {
             position={["absolute", "fixed"]}
             width={"100%"}
             bottom={0}
+            className='!hidden sm:flex'
         >
             <Container
                 as={Stack}
