@@ -35,10 +35,10 @@ export const NavBar = () => {
                     </Text>
                 </Flex>
                 <div className='hidden sm:flex w-full sm:w-1/2 md:w-2/6 2xl:w-1/6 gap-2 text-white'>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/projects'}>Projekte</NextLink>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/contact'}>Kontakt</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/projects'}>Projekte</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/contact'}>Kontakt</NextLink>
                 </div>
                 <Stack
                     className='sm:!hidden block'
