@@ -48,29 +48,30 @@ interface SectionLandingProps {
 }
 const SectionLanding = ({ image, children, zIndex = 0 }: SectionLandingProps) => {
     return (
-            <Flex
+        <Flex
+            w={'full'}
+            h={'100vh'}
+            backgroundImage={
+                'url(' + image + ')'
+            }
+            backgroundSize={'cover'}
+            backgroundPosition={'center center'}
+            position={{ base: "static" }}
+            zIndex={zIndex}
+        >
+            <VStack
                 w={'full'}
-                h={'100vh'}
-                backgroundImage={
-                    'url(' + image + ')'
-                }
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}
-                position={{ base: "static"}}
-                zIndex={zIndex}
-            >
-                <VStack
-                    w={'full'}
-                    justify={'center'}
-                    px={useBreakpointValue({ base: 4, md: 8 })}
-                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                        {children}
-                    </Stack>
-                </VStack>
-            </Flex>
+                justify={'center'}
+                px={useBreakpointValue({ base: 4, md: 8 })}
+                bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+                <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                    {children}
+                </Stack>
+            </VStack>
+        </Flex>
     )
 }
+
 const LandingPage = () => {
     /*
     let page = 1;
@@ -150,8 +151,12 @@ const LandingPage = () => {
             <PageTitle title={"tectonica | Baurealisationen"} />
             <Flex flexDirection="column">
                 <NavBar />
-                <SectionLanding
-                    image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
+                <video autoPlay muted loop className='h-screen w-full object-cover z-0'>
+                    <source src="/video/construction-site01.mp4" type="video/mp4" />
+                </video>
+                {/* <SectionLanding
+                    // image='https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
+                    image='https://images.unsplash.com/photo-1553946550-4b8f3eea5451?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80'
                 >
                     <Text
                         color={'white'}
@@ -162,7 +167,7 @@ const LandingPage = () => {
                         Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
                         eiusmod tempor
                     </Text>
-                </SectionLanding>
+                </SectionLanding> */}
                 <SectionLanding
                     image='https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true'
                 >
