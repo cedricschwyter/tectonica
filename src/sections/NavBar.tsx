@@ -18,7 +18,7 @@ import NextLink from 'next/link';
 export const NavBar = () => {
     return (
         <div
-            className='fixed top-0 mr-3 rounded bg-black/25 backdrop-blur-md w-full z-50'
+            className='fixed top-0 mr-3 shadow-lg bg-black/25 backdrop-blur-md w-full z-50'
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
@@ -28,16 +28,17 @@ export const NavBar = () => {
                 align={'center'}>
                 <Flex flex={{ base: 1 }} justify={"start"}>
                     <Text
+                        className='border-2 border-white rounded-sm p-1 text-3xl'
                         textAlign={["left", "center", "center"]}
-                        fontSize="3xl" as={NextLink} href={"/"}>
+                        as={NextLink} href={"/"}>
                         tectonica
                     </Text>
                 </Flex>
-                <div className='hidden sm:flex w-full sm:w-1/2 md:w-2/6 gap-2 text-white'>
-                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/projects'}>Projects</NextLink>
-                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
-                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
-                    <NextLink className='rounded w-full hover:shadow-md hover:bg-black/25 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/contact'}>Contact</NextLink>
+                <div className='hidden sm:flex w-full sm:w-1/2 md:w-2/6 2xl:w-1/6 gap-2 text-white'>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/projects'}>Projects</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
+                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-black/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/contact'}>Contact</NextLink>
                 </div>
                 <Stack
                     className='sm:!hidden block'
