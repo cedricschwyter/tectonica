@@ -190,7 +190,7 @@ const LandingPage = () => {
                                 text='Unsere Vision ist es, als führende Baufirma anerkannt zu werden, die für ihre exzellenten Leistungen, ihre innovativen Lösungen und ihre integre Arbeitsweise bekannt ist. Wir möchten eine positive Veränderung in der Baubranche bewirken und zeigen, dass es möglich ist, erfolgreich zu sein und gleichzeitig Verantwortung für unsere Umwelt und Gesellschaft zu übernehmen.'
                             />
                         </div>
-                        <div className='p-4 rounded-xl backdrop-blur-xl hover:scale-110 transition-all mx-[40%] text-center border shadow-xl border-black'>
+                        <div className='p-4 rounded-xl backdrop-blur-xl hover:scale-110 transition-all mx-[40%] text-center border shadow-xl'>
                             Kontakt
                         </div>
                     </div>
