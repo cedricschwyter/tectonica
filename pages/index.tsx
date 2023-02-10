@@ -1,22 +1,17 @@
 import {
     Flex,
     Text,
-    Stack,
     Icon,
     useBreakpointValue,
-    SimpleGrid,
-    Heading,
-    Spinner,
-    VStack
 } from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 import { ReactElement, useEffect, useRef } from 'react';
 import { NavBar } from '@sections/NavBar';
 import Footer from '@sections/Footer';
 import PageTitle from '@components/PageTitle';
-import { AnimationControls, motion, MotionValue, useAnimation, useInView, useScroll, useTransform } from "framer-motion";
-import { isMobile } from 'react-device-detect';
-import Background from '@components/Background';
+import { AnimationControls, motion, MotionValue, useInView, useScroll, useTransform } from "framer-motion";
+import { isMobile } from 'react-device-detect'; // TODO: May be useful to disable vid on mobile
+import Background from '@components/Background'; // TODO: my mac doesn't like this but looks cool
 
 interface FeatureProps {
     title: string;
@@ -33,44 +28,6 @@ const imageUrls = [
 
 function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);
-}
-
-function Image({ id = 2, image }: { id: number, image: string }) {
-    const ref = useRef(null);
-
-    // Parralax stuff not used right now
-    const { scrollYProgress } = useScroll({ target: ref });
-    const y = useParallax(scrollYProgress, 300);
-
-    const isInView = useInView(ref, { amount: 'some', once: false });
-
-
-    // TODO: Remove
-    useEffect(() => {
-        console.log("Element is in view: ", isInView)
-    }, [isInView])
-
-    return (
-        <motion.section className='h-screen justify-center snap-center' initial={{ opacity: 0.3 }} animate={{ opacity: isInView ? 1 : 0.3 }}
-        >
-            <div>
-                <Flex
-                    className='transition-all flex justify-center align-middle items-center'
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(' + image + ')'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}
-                    position={{ base: "absolute" }}
-                >
-
-                </Flex>
-            </div>
-            <motion.h2 style={{ y }}>{`#00${id}`}</motion.h2>
-        </motion.section>
-    );
 }
 
 const Feature = ({ title, icon, text }: FeatureProps) => {
@@ -98,7 +55,7 @@ interface SectionLandingProps {
 const SectionLanding = ({ image, children, id }: SectionLandingProps) => {
     let ref = useRef(null);
 
-    // Parralax stuff not used right now
+    // TODO: Parralax stuff not used right now
     const { scrollYProgress } = useScroll({ target: ref });
     const y = useParallax(scrollYProgress, 300);
 
