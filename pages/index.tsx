@@ -148,7 +148,7 @@ const LandingPage = () => {
                 <NavBar />
                 <SectionLanding image={''} id={4} key={4}>
                     <div id="filter" className='bg-black/40 w-full h-full absolute z-10'></div>
-                    <video muted loop autoPlay className='h-screen w-full object-cover z-0 fixed snap-center hidden md:fixed'>
+                    <video muted loop autoPlay className='h-screen w-full object-cover z-0 fixed snap-center'>
                         <source src="/video/construction-site01.mp4" type="video/mp4" />
                     </video>
                     <div className='z-10 '>
