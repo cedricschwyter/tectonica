@@ -21,9 +21,10 @@ interface FeatureProps {
 
 // TODO: Find Better images
 const imageUrls = [
-    'https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true',
     'https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true',
-    'https://images.unsplash.com/photo-1553946550-4b8f3eea5451?ixlib=rb-4.0.3&ix'
+    'https://images.unsplash.com/photo-1553946550-4b8f3eea5451?ixlib=rb-4.0.3&ix',
+    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    'https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true',
 ]
 
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -32,13 +33,17 @@ function useParallax(value: MotionValue<number>, distance: number) {
 
 const Feature = ({ title, icon, text }: FeatureProps) => {
     return (
-        <div className='group backdrop-blur-xl  rounded-md gap-3 bg-black/10 p-4 shadow-lg flex justify-start justify-items-start hover:shadow-xl hover:scale-110 transition-all flex-col w-full'>
+        <div
+            style={{
+                background: 'linear-gradient(125deg, rgba(0,123,132,.3) 0%, rgba(0,0,0,.7) 100%);'
+            }}
+            className='t-gradient group backdrop-blur-xl  rounded-xl gap-3  p-4 pt-8 shadow-xl flex justify-start justify-items-start hover:shadow-xl hover:scale-110 transition-all flex-col w-full'>
             <div className='flex justify-left gap-5 justify-items-start flex-col h-full w-full group-hover:z-20 z-10'>
-                <span className='flex text-[10rem] justify-start'>
+                <span className='flex text-[12rem] justify-center'>
                     {icon}
                 </span>
-                <Text fontWeight={600}>{title}</Text>
-                <p className=''>
+                <Text className='text-white text-center text-3xl' fontWeight={600}>{title}</Text>
+                <p className='p-3 text-xl'>
                     {text}
                 </p>
             </div>
@@ -125,12 +130,13 @@ const LandingPage = () => {
                     </div>
                 </SectionLanding>
                 <SectionLanding image={imageUrls[2]} id={2} key={2} >
-                    <div className='bg-black/30 flex gap-5 flex-col rounded-lg backdrop-blur-lg p-10 m-5 w-full transition-all'>
-                        <h2 className='text-[4rem] font-semibold self-center'>
+                    <div id="filter" className='bg-black/40 w-full h-full absolute z-0 hidden'></div>
+                    <div className='bg-black/0 flex gap-16 flex-col rounded-lg  p-10 m-5 w-full transition-all'>
+                        <h2 className='text-[8rem] text-accent font-semibold self-center'>
                             Vision
                         </h2>
 
-                        <div className="flex gap-5 sm:flex-row flex-col justify-start w-full" >
+                        <div className="flex gap-16 sm:flex-row flex-col justify-start w-full" >
                             <Feature
                                 icon={<Icon as={FcAssistant} w={iconSize} h={iconSize} />}
                                 title={'Augenhöhe (Rhigetti Partner)'}
@@ -147,7 +153,11 @@ const LandingPage = () => {
                                 text='Unsere Vision ist es, als führende Baufirma anerkannt zu werden, die für ihre exzellenten Leistungen, ihre innovativen Lösungen und ihre integre Arbeitsweise bekannt ist. Wir möchten eine positive Veränderung in der Baubranche bewirken und zeigen, dass es möglich ist, erfolgreich zu sein und gleichzeitig Verantwortung für unsere Umwelt und Gesellschaft zu übernehmen.'
                             />
                         </div>
-                        <div className='p-4 rounded-xl backdrop-blur-xl hover:scale-110 transition-all mx-[40%] text-center border shadow-xl'>
+                        <div
+                            style={{
+                                background: 'linear-gradient(125deg, rgba(0,123,132,.2) 0%, rgba(0,0,0,.2) 100%);'
+                            }}
+                            className='t-gradient p-4 rounded-xl text-xl text-white font-bold backdrop-blur-xl hover:scale-110 transition-all mx-[41%] text-center  shadow-xl'>
                             Kontakt
                         </div>
                     </div>
