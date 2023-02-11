@@ -132,7 +132,7 @@ const LandingPage = () => {
                 <SectionLanding image={imageUrls[2]} id={2} key={2} >
                     <div id="filter" className='bg-black/40 w-full h-full absolute z-0 hidden'></div>
                     <div className='bg-black/0 flex gap-16 flex-col rounded-lg  p-10 m-5 w-full transition-all'>
-                        <h2 className='text-[8rem] text-accent font-semibold self-center'>
+                        <h2 className='text-[8rem] text-white font-semibold self-center'>
                             Vision
                         </h2>
 
