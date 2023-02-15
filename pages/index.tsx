@@ -12,12 +12,9 @@ import PageTitle from '@components/PageTitle';
 import { AnimationControls, motion, MotionValue, useInView, useScroll, useTransform } from "framer-motion";
 import { isMobile } from 'react-device-detect'; // TODO: May be useful to disable vid on mobile
 import Background from '@components/Background'; // TODO: my mac doesn't like this but looks cool
+import Vision from '@sections/Vision';
 
-interface FeatureProps {
-    title: string;
-    icon: ReactElement;
-    text: string;
-}
+
 
 // TODO: Find Better images
 const imageUrls = [
@@ -31,25 +28,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-const Feature = ({ title, icon, text }: FeatureProps) => {
-    return (
-        <div
-            style={{
-                background: 'linear-gradient(125deg, rgba(0,123,132,.3) 0%, rgba(0,0,0,.7) 100%);'
-            }}
-            className='t-gradient group backdrop-blur-xl  rounded-xl gap-3  p-4 pt-8 shadow-xl flex justify-start justify-items-start hover:shadow-xl hover:scale-110 transition-all flex-col w-full'>
-            <div className='flex justify-left gap-5 justify-items-start flex-col h-full w-full group-hover:z-20 z-10'>
-                <span className='flex text-[12rem] justify-center'>
-                    {icon}
-                </span>
-                <Text className='text-white text-center text-3xl' fontWeight={600}>{title}</Text>
-                <p className='p-3 text-xl'>
-                    {text}
-                </p>
-            </div>
-        </div>
-    );
-};
+
 interface SectionLandingProps {
     image: string;
     children?: React.ReactNode;
@@ -57,7 +36,7 @@ interface SectionLandingProps {
     id: number;
     childRef?: any;
 }
-const SectionLanding = ({ image, children, id }: SectionLandingProps) => {
+const SectionLandingContainer = ({ image, children, id }: SectionLandingProps) => {
     let ref = useRef(null);
 
     // TODO: Parralax stuff not used right now
@@ -74,31 +53,24 @@ const SectionLanding = ({ image, children, id }: SectionLandingProps) => {
     }, [ref, childRef]);
 
     return (
-        <motion.section className='h-screen justify-center snap-center' initial={{ opacity: 0.3 }} animate={{ opacity: isInView ? 1 : 0.3 }}
-        >
-            <div>
-                <Flex
-                    className='transition-all flex flex-row justify-center align-middle items-center'
-                    w={'full'}
-                    h={'100vh'}
-                    backgroundImage={
-                        'url(' + image + ')'
-                    }
-                    backgroundSize={'cover'}
-                    backgroundPosition={'center center'}
-                    position={{ base: "absolute" }}
-                >
-                    <span ref={ref}></span>
-                    {children}
-                </Flex>
-            </div>
-            <motion.h2 style={{ y }}>{`#00${id}`}</motion.h2>
-        </motion.section>
+        <section className='h-screen max-w-screen max-h-screen overflow-auto'>
+            <Flex
+                className='h-full w-full transition-all flex flex-row justify-center align-middle items-center'
+
+                backgroundImage={
+                    'url(' + image + ')'
+                }
+                backgroundSize={'cover'}
+                backgroundPosition={'center center'}
+            >
+                <span ref={ref}></span>
+                {children}
+            </Flex>
+        </section>
     )
 }
 
 const LandingPage = () => {
-    const iconSize = 20;
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
@@ -108,17 +80,17 @@ const LandingPage = () => {
             */}
             <Flex flexDirection="column">
                 <NavBar />
-                <SectionLanding image={''} id={4} key={4}>
-                    <div id="filter" className='bg-black/40 w-full h-full absolute z-10'></div>
-                    <video muted loop autoPlay className='h-screen w-full object-cover z-0 fixed snap-center'>
+                <SectionLandingContainer image={''} id={4} key={4}>
+                    {/* <div id="filter" className='bg-black/40 w-screen h-screen absolute z-10'></div> */}
+                    <video muted loop autoPlay className='h-screen w-full object-cover z-0 absolute brightness-75'>
                         <source src="/video/construction-site01.mp4" type="video/mp4" />
                     </video>
-                    <div className='z-10 '>
-                        <h1 className='text-[8em] z-10 text-accent'>
+                    <div className='z-10 m-5'>
+                        <h1 className='sm:text-9xl text-7xl  z-10 text-accent'>
                             tectonica
                         </h1>
                         <Text
-                            className='z-10 p-20'
+                            className='z-10 p-10 sm:p-20'
                             color={'white'}
                             fontWeight={700}
                             lineHeight={1.2}
@@ -128,43 +100,13 @@ const LandingPage = () => {
                             Yo wir schaffen das!
                         </Text>
                     </div>
-                </SectionLanding>
-                <SectionLanding image={imageUrls[2]} id={2} key={2} >
-                    <div id="filter" className='bg-black/40 w-full h-full absolute z-0 hidden'></div>
-                    <div className='bg-black/0 flex gap-16 flex-col rounded-lg  p-10 m-5 w-full transition-all'>
-                        <h2 className='text-[8rem] text-white font-semibold self-center'>
-                            Vision
-                        </h2>
-
-                        <div className="flex gap-16 sm:flex-row flex-col justify-start w-full" >
-                            <Feature
-                                icon={<Icon as={FcAssistant} w={iconSize} h={iconSize} />}
-                                title={'Augenhöhe (Rhigetti Partner)'}
-                                text='Unsere Vision für eine erfolgreiche Baufirma ist es, immer auf Augenhöhe mit unseren Partnern und Kunden zu agieren. Wir schätzen eine offene und transparente Kommunikation, bei der wir gemeinsam nach Lösungen suchen und die Bedürfnisse unserer Kunden im Fokus haben.'
-                            />
-                            <Feature
-                                icon={<Icon as={FcDonate} w={iconSize} h={iconSize} />}
-                                title={'Denken auch ausserhalb des normalen Rahmens'}
-                                text='Wir denken auch ausserhalb des normalen Rahmens und bringen neue und innovative Ideen in den Bauprozess ein. Dabei legen wir besonderen Wert auf Nachhaltigkeit und effiziente Arbeitsabläufe.'
-                            />
-                            <Feature
-                                icon={<Icon as={FcInTransit} w={iconSize} h={iconSize} />}
-                                title={'Den Ernst in die Sache investieren nicht in die Person'}
-                                text='Unsere Vision ist es, als führende Baufirma anerkannt zu werden, die für ihre exzellenten Leistungen, ihre innovativen Lösungen und ihre integre Arbeitsweise bekannt ist. Wir möchten eine positive Veränderung in der Baubranche bewirken und zeigen, dass es möglich ist, erfolgreich zu sein und gleichzeitig Verantwortung für unsere Umwelt und Gesellschaft zu übernehmen.'
-                            />
-                        </div>
-                        <div
-                            style={{
-                                background: 'linear-gradient(125deg, rgba(0,123,132,.2) 0%, rgba(0,0,0,.2) 100%);'
-                            }}
-                            className='t-gradient p-4 rounded-xl text-xl text-white font-bold backdrop-blur-xl hover:scale-110 transition-all mx-[41%] text-center  shadow-xl'>
-                            Kontakt
-                        </div>
-                    </div>
-                </SectionLanding>
+                </SectionLandingContainer>
+                <SectionLandingContainer image={imageUrls[2]} id={2} key={2} >
+                    <Vision />
+                </SectionLandingContainer>
                 <>
                     {[0, 1].map((id) => (
-                        <SectionLanding image={imageUrls[id]} id={id} key={id} />
+                        <SectionLandingContainer image={imageUrls[id]} id={id} key={id} />
                     ))}
                 </>
 

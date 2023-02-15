@@ -47,10 +47,10 @@ export default function Footer() {
         <Box
             backdropBlur='8px'
             zIndex={2}
-            position={["absolute", "fixed"]}
+            position={["relative"]}
             width={"100%"}
             bottom={0}
-            className='!hidden sm:flex'
+            className='sm:flex'
         >
             <Container
                 as={Stack}
