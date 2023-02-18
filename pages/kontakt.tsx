@@ -40,7 +40,7 @@ const Kontakt = () => {
                             <input type="submit" value="Submit" className="w-full max-w-xs text-gray-300 btn btn-outline" />
                         </form>
                     </div>
-                    <div id='map' className="w-full translate-y-1/2 bg-blue-400 shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl hover:scale-105">
+                    <div id='map' className="w-full translate-y-1/2 bg-blue-400 shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl sm:hover:scale-105">
                         <GMap />
                     </div>
                 </div>
