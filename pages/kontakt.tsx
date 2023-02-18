@@ -33,7 +33,7 @@ const Kontakt = () => {
                         <div className="m-4 text-4xl font-bold text-center text-white grow">
                             Kontakt
                         </div>
-                        <form className="flex flex-col items-center w-full h-full gap-2" method='post' onSubmit={handleSubmit}>
+                        <form className="flex flex-col items-center w-full h-full gap-2 text-white" method='post' onSubmit={handleSubmit}>
                             <input type="email" placeholder="E-Mail Adrese" id="email" name="email" className="w-full max-w-xs input input-ghost " />
                             <input type="text" placeholder="Betreff" id="subject" name="subject" className="w-full max-w-xs input input-ghost " />
                             <textarea placeholder="Nachricht" id="message" name="message" className="w-full max-w-xs textarea input-ghost " />
