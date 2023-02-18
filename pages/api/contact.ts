@@ -7,9 +7,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, subject, message } = req.body;
     const msgTectonica = {
         to: process.env.COMPANY_CONTACT_EMAIL!,
-        from: email,
+        from: process.env.COMPANY_NOREPLY_EMAIL!,
         replyTo: email,
-        subject,
+        subject: `[tectonica-bau.ch Kontaktanfrage] ${subject} - von ${email}`,
         text: message
     };
     const msgCustomer = {
