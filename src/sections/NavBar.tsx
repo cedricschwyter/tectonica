@@ -44,7 +44,7 @@ const navItems = [
     },
     {
         name: 'Aktuelles',
-        href: '/kontakt',
+        href: '/aktuelles',
     },
     {
         name: 'Kontakt',
