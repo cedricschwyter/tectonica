@@ -53,9 +53,9 @@ const SectionLandingContainer = ({ image, children, id }: SectionLandingProps) =
     }, [ref, childRef]);
 
     return (
-        <section className='h-screen max-w-screen max-h-screen overflow-auto'>
+        <section className='h-screen max-h-screen overflow-auto max-w-screen'>
             <Flex
-                className='h-full w-full transition-all flex flex-row justify-center align-middle items-center'
+                className='flex flex-row items-center justify-center w-full h-full align-middle transition-all'
 
                 backgroundImage={
                     'url(' + image + ')'
@@ -74,19 +74,14 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
-            {/* <Background /> 
-            TODO: Remove experiment
-
-            */}
             <Flex flexDirection="column">
-                <NavBar />
                 <SectionLandingContainer image={''} id={4} key={4}>
-                    {/* <div id="filter" className='bg-black/40 w-screen h-screen absolute z-10'></div> */}
-                    <video muted loop autoPlay className='h-screen w-full object-cover z-0 absolute brightness-75'>
+                    {/* <div id="filter" className='absolute z-10 w-screen h-screen bg-black/40'></div> */}
+                    <video muted loop className='absolute z-0 object-cover w-full h-screen brightness-75'>
                         <source src="/video/construction-site01.mp4" type="video/mp4" />
                     </video>
                     <div className='z-10 m-5'>
-                        <h1 className='sm:text-9xl text-7xl  z-10 text-accent'>
+                        <h1 className='z-10 sm:text-9xl text-7xl text-accent'>
                             tectonica
                         </h1>
                         <Text
@@ -109,10 +104,6 @@ const LandingPage = () => {
                         <SectionLandingContainer image={imageUrls[id]} id={id} key={id} />
                     ))}
                 </>
-
-
-
-                <Footer />
             </Flex>
         </>
     );
