@@ -71,7 +71,7 @@ export const NavBar = () => {
                         tectonica
                     </Text>
                 </Flex>
-                <div className='hidden w-full gap-2 text-white sm:flex sm:w-1/2 md:w-2/6 2xl:w-1/6'>
+                <div className='hidden w-full gap-2 text-white sm:flex basis-1/2'>
                     {
                         navItems.map((item, index) => {
                             return (
