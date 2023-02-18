@@ -1,13 +1,13 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: false,
 };
 const styles = {
   global: {
     body: {
-      bg: 'black'
+      bg: 'white'
     },
   },
 }
