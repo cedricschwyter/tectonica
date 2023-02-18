@@ -15,10 +15,47 @@ import {
 } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 
+const navItems = [
+    {
+        name: 'Unternehmen',
+        href: '/',
+        subNavItems: [
+            {
+                name: 'Portrait',
+                href: '/portrait',
+            },
+            {
+                name: 'Vision',
+                href: '/vision',
+            },
+            {
+                name: 'Team',
+                href: '/team',
+            },
+            {
+                name: 'Jobs',
+                href: '/jobs',
+            },
+        ],
+    },
+    {
+        name: 'Dienstleistungen',
+        href: '/dienstleistungen',
+    },
+    {
+        name: 'Aktuelles',
+        href: '/kontakt',
+    },
+    {
+        name: 'Kontakt',
+        href: '/kontakt',
+    },
+]
+
 export const NavBar = () => {
     return (
         <div
-            className='fixed top-0 mr-3 shadow-lg pb-1 bg-black/90 backdrop-blur-xl w-full z-50'
+            className='fixed top-0 z-50 w-full pb-1 mr-3 shadow-lg bg-black/90 backdrop-blur-xl'
         >
             <Flex
                 backgroundColor={"rgba(0,0,0,0)"}
@@ -28,17 +65,31 @@ export const NavBar = () => {
                 align={'center'}>
                 <Flex flex={{ base: 1 }} justify={"start"}>
                     <Text
-                        className='rounded-sm p-1 text-3xl text-accent'
+                        className='p-1 text-3xl rounded-sm text-accent'
                         textAlign={["left", "center", "center"]}
                         as={NextLink} href={"/"}>
                         tectonica
                     </Text>
                 </Flex>
-                <div className='hidden sm:flex w-full sm:w-1/2 md:w-2/6 2xl:w-1/6 gap-2 text-white'>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/projects'}>Projekte</NextLink>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
-                    <NextLink className='rounded  w-full hover:shadow-md hover:bg-white/30 p-2 font-semibold text-center hover:scale-105 transition-all active:shadow-inner active:scale-95 ' href={'/contact'}>Kontakt</NextLink>
+                <div className='hidden w-full gap-2 text-white sm:flex sm:w-1/2 md:w-2/6 2xl:w-1/6'>
+                    {
+                        navItems.map((item, index) => {
+                            return (
+                                <NextLink
+                                    className='w-full p-2 mx-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95'
+                                    key={index}
+                                    href={item.href}
+                                    passHref
+                                >
+                                    {item.name}
+                                </NextLink>
+                            )
+                        })
+                    }
+                    {/* <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/projects'}>Projekte</NextLink>
+                    <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
+                    <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
+                    <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/contact'}>Kontakt</NextLink> */}
                 </div>
                 <Stack
                     className='sm:!hidden block'
@@ -56,10 +107,10 @@ export const NavBar = () => {
                             <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
                         <MenuList className='!bg-slate-900 p-6' flexDir={"column"}>
-                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/projects'}>Projects</NextLink>
-                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/team'}>Team</NextLink>
-                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/jobs'}>Jobs</NextLink>
-                            <NextLink className='rounded w-full hover:shadow-md hover:underline p-3 font-semibold text-center  active:shadow-inner' href={'/contact'}>Contact</NextLink>
+                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/projects'}>Projects</NextLink>
+                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/team'}>Team</NextLink>
+                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/jobs'}>Jobs</NextLink>
+                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/contact'}>Contact</NextLink>
                         </MenuList>
                     </Menu>
                 </Stack>
