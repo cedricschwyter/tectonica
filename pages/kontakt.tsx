@@ -1,16 +1,17 @@
 import PageTitle from "@components/PageTitle";
 
 const Kontakt = () => {
-    const onSubmit = async (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form)
+        const formJson = JSON.stringify(Object.fromEntries(formData.entries()));
+        console.log(formJson);
         await fetch("/api/contact", {
-            method: "POST",
-            headers: {"content-type": "application/json"},
-            body: JSON.stringify({
-                email: e.target[0],
-                subject: e.target[1],
-                message: e.target[2]
-            })
+            method: form.method,
+            headers: { "content-type": "application/json" },
+            body: formJson
         });
     };
 
@@ -20,11 +21,11 @@ const Kontakt = () => {
             <div>
                 Kontakt
             </div>
-            <form>
-                <input type="text" id="email" name="email" /><br />
+            <form className="mt-96" method='post' onSubmit={handleSubmit}>
+                <input type="email" id="email" name="email" /><br />
                 <input type="text" id="subject" name="subject" /><br />
                 <input type="text" id="message" name="message" /><br />
-                <input type="submit" value="Submit" onSubmit={onSubmit}/>
+                <input type="submit" value="Submit" />
             </form>
         </>
     );
