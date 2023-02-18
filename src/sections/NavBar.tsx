@@ -86,6 +86,22 @@ export const NavBar = () => {
                             )
                         })
                     }
+                    {/* TODO: Dropdown for Unternehmen
+                    {
+                        navItems[0].subNavItems
+                            .map((item, index) => {
+                                return (
+                                    <NextLink
+                                        className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner'
+                                        key={index}
+                                        href={item.href}
+                                        passHref
+                                    >
+                                        {item.name}
+                                    </NextLink>
+                                )
+                            })
+                    } */}
                     {/* <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/projects'}>Projekte</NextLink>
                     <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/team'}>Team</NextLink>
                     <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
@@ -107,10 +123,20 @@ export const NavBar = () => {
                             <HamburgerIcon w={6} h={6} color='white' />
                         </MenuButton>
                         <MenuList className='!bg-slate-900 p-6' flexDir={"column"}>
-                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/projects'}>Projects</NextLink>
-                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/team'}>Team</NextLink>
-                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/jobs'}>Jobs</NextLink>
-                            <NextLink className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner' href={'/contact'}>Contact</NextLink>
+                            {
+                                navItems.map((item, index) => {
+                                    return (
+                                        <NextLink
+                                            className='w-full p-3 font-semibold text-center rounded hover:shadow-md hover:underline active:shadow-inner'
+                                            key={index}
+                                            href={item.href}
+                                            passHref
+                                        >
+                                            {item.name}
+                                        </NextLink>
+                                    )
+                                })
+                            }
                         </MenuList>
                     </Menu>
                 </Stack>
