@@ -16,6 +16,7 @@
         "@emotion/styled": "^11.10.5",
         "@sendgrid/mail": "^7.7.0",
         "@typescript-eslint/parser": "^5.43.0",
+        "daisyui": "^2.50.1",
         "eslint": "8.27.0",
         "eslint-config-next": "13.0.3",
         "framer-motion": "^7.6.7",
