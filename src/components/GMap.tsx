@@ -15,28 +15,15 @@ const GMap = () => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-
     })
-
-    const [map, setMap] = useState(null)
-
-
-    const onUnmount = useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-
-    const onLoad = marker => {
-        console.log('marker: ', marker)
-    }
 
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
             zoom={18}
-            onUnmount={onUnmount}
         >
-            <MarkerF position={center} onLoad={onLoad} />
+            <MarkerF position={center} />
         </GoogleMap>
     ) : <><div className="radial-progress"></div>    </>
 }
