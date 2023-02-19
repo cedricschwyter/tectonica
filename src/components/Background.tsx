@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { Box, useColorModeValue } from "@chakra-ui/react";
 
 const Background = () => {
     const particlesInit = useCallback(async (engine: Engine) => {
@@ -18,7 +17,7 @@ const Background = () => {
         await console.log(container);
     }, []);
     return (
-        <Box zIndex={-1}>
+        <div className="-z-10">
             <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -26,16 +25,16 @@ const Background = () => {
                 options={{
                     background: {
                         color: {
-                            value: useColorModeValue("#FFFFFF", "#000000"),
+                            value: "#000000",
                         },
                     },
                     fpsLimit: 120,
                     particles: {
                         color: {
-                            value: useColorModeValue("#000000", "#FFFFFF"),
+                            value: "#FFFFFF",
                         },
                         links: {
-                            color: useColorModeValue("#000000", "#FFFFFF"),
+                            color: "#FFFFFF",
                             distance: 150,
                             enable: true,
                             opacity: 0.5,
@@ -74,7 +73,7 @@ const Background = () => {
                     detectRetina: true,
                 }}
             />
-        </Box>
+        </div>
     );
 };
 export default Background;

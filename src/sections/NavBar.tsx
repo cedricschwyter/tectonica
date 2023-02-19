@@ -1,18 +1,3 @@
-import {
-    Box,
-    Flex,
-    Text,
-    Button,
-    Stack,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuDivider,
-} from '@chakra-ui/react';
-import {
-    HamburgerIcon,
-} from '@chakra-ui/icons';
 import NextLink from 'next/link';
 
 const navItems = [
@@ -57,20 +42,14 @@ export const NavBar = () => {
         <div
             className='fixed top-0 z-50 w-full pb-1 mr-3 shadow-lg bg-black/90 backdrop-blur-xl'
         >
-            <Flex
-                backgroundColor={"rgba(0,0,0,0)"}
-                color={'white'}
-                py={{ base: 2 }}
-                px={{ base: 4 }}
-                align={'center'}>
-                <Flex flex={{ base: 1 }} justify={"start"}>
-                    <Text
-                        className='p-1 text-3xl rounded-sm text-accent'
-                        textAlign={["left", "center", "center"]}
-                        as={NextLink} href={"/"}>
+            <div className='flex px-4 py-2 text-white align-center'>
+                <div className='flex justify-start basis-1'>
+                    <NextLink
+                        className='p-1 text-3xl text-left rounded-sm text-accent'
+                        href={"/"}>
                         tectonica
-                    </Text>
-                </Flex>
+                    </NextLink>
+                </div>
                 <div className='hidden w-full gap-2 text-white sm:flex basis-1/2'>
                     {
                         navItems.map((item, index) => {
@@ -107,22 +86,25 @@ export const NavBar = () => {
                     <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/jobs'}>Jobs</NextLink>
                     <NextLink className='w-full p-2 font-semibold text-center transition-all rounded hover:shadow-md hover:bg-white/30 hover:scale-105 active:shadow-inner active:scale-95 ' href={'/contact'}>Kontakt</NextLink> */}
                 </div>
-                <Stack
+                <div id='stack-chakra'
                     className='sm:!hidden block'
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
-                    <Menu>
-                        <MenuButton
-                            as={Button}
-                            rounded={'full'}
-                            variant={'link'}
-                            cursor={'pointer'}
-                            minW={0}>
-                            <HamburgerIcon w={6} h={6} color='white' />
-                        </MenuButton>
-                        <MenuList className='!bg-slate-900 p-6' flexDir={"column"}>
+                // flex={{ base: 1, md: 0 }}
+                // justify={'flex-end'}
+                // direction={'row'}
+                // spacing={6}
+                >
+                    <div>
+                        <button
+                            className=''
+                        // as={Button}
+                        // rounded={'full'}
+                        // variant={'link'}
+                        // cursor={'pointer'}
+                        // minW={0}
+                        >
+                            {/* <HamburgerIcon w={6} h={6} color='white' /> */}
+                        </button>
+                        <div className='!bg-slate-900 p-6 flex flex-col'>
                             {
                                 navItems.map((item, index) => {
                                     return (
@@ -137,10 +119,10 @@ export const NavBar = () => {
                                     )
                                 })
                             }
-                        </MenuList>
-                    </Menu>
-                </Stack>
-            </Flex>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

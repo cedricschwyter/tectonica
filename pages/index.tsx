@@ -1,9 +1,3 @@
-import {
-    Flex,
-    Text,
-    Icon,
-    useBreakpointValue,
-} from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 import { ReactElement, useEffect, useRef } from 'react';
 import { NavBar } from '@sections/NavBar';
@@ -54,18 +48,19 @@ const SectionLandingContainer = ({ image, children, id }: SectionLandingProps) =
 
     return (
         <section className='h-screen max-h-screen overflow-auto max-w-screen'>
-            <Flex
+            <div
                 className='flex flex-row items-center justify-center w-full h-full align-middle transition-all'
 
-                backgroundImage={
-                    'url(' + image + ')'
-                }
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}
+                style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                }}
             >
                 <span ref={ref}></span>
                 {children}
-            </Flex>
+            </div>
         </section>
     )
 }
@@ -74,7 +69,7 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
-            <Flex flexDirection="column">
+            <div className='flex flex-col'>
                 <SectionLandingContainer image={''} id={4} key={4}>
                     {/* <div id="filter" className='absolute z-10 w-screen h-screen bg-black/40'></div> */}
                     <video muted loop className='absolute z-0 object-cover w-full h-screen brightness-75'>
@@ -84,16 +79,11 @@ const LandingPage = () => {
                         <h1 className='z-10 sm:text-9xl text-7xl text-accent'>
                             tectonica
                         </h1>
-                        <Text
-                            className='z-10 p-10 sm:p-20'
-                            color={'white'}
-                            fontWeight={700}
-                            lineHeight={1.2}
-                            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
-                        >
+                        <h2>
+
                             können wir das schaffen?
                             Yo wir schaffen das!
-                        </Text>
+                        </h2>
                     </div>
                 </SectionLandingContainer>
                 <SectionLandingContainer image={imageUrls[2]} id={2} key={2} >
@@ -104,7 +94,7 @@ const LandingPage = () => {
                         <SectionLandingContainer image={imageUrls[id]} id={id} key={id} />
                     ))}
                 </>
-            </Flex>
+            </div>
         </>
     );
 }
