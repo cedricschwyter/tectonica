@@ -1,6 +1,5 @@
 import GMap from "@components/GMap";
 import PageTitle from "@components/PageTitle";
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { useState } from "react";
 
 
