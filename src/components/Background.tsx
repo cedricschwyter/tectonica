@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import { Box, useColorModeValue } from "@chakra-ui/react";
 
 const Background = () => {
     const particlesInit = useCallback(async (engine: Engine) => {
