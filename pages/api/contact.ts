@@ -16,9 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         to: email,
         from: process.env.COMPANY_NOREPLY_EMAIL!,
         subject: `[Tectonica GmbH] Kontaktanfrage erhalten - ${subject}`,
-        text: `Wir haben Ihre Kontaktanfrage erhalten und werden auf Sie zukommen.\n\n
-            Betreff: "${subject}"\n
-            Mitteilung: "${message}"`
+        text: `Wir haben Ihre Kontaktanfrage erhalten und werden auf Sie zukommen.\n\nBetreff: "${subject}"\nMitteilung: "${message}"`
     }
 
     try {

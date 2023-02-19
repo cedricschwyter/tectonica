@@ -1,5 +1,4 @@
 import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
-import { useCallback, useState } from 'react';
 
 const center = {
     lat: 47.398600,
@@ -14,7 +13,7 @@ const containerStyle = {
 const GMap = () => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     })
 
     return isLoaded ? (
