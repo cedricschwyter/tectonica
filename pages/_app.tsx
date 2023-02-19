@@ -7,7 +7,7 @@ import '../src/global.css';
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
-      <Layout>
+      <Layout data-theme="tectonica">
         <Component className='w-screen h-screen mt-32 bg-white' {...pageProps} key={router.asPath} />
       </Layout>
     </>
