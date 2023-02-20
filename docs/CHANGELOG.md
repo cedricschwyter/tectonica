@@ -1,3 +1,8 @@
+## **0.2.2** <sub><sup>2023-02-20 ([e122de3...e122de3](https://github.com/d3psi/tectonica/compare/e122de3...e122de3?diff=split))</sup></sub>
+
+*no relevant changes*
+
+
 ## **0.2.1** <sub><sup>2022-11-23 ([593eba9...dd0c4eb](https://github.com/d3psi/tectonica/compare/593eba9...dd0c4eb?diff=split))</sup></sub>
 
 ### Bug Fixes
