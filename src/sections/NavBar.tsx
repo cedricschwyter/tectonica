@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import NextLink from 'next/link';
 import { FaChevronRight, FaChevronDown, FaBuilding, FaCamera, FaEye, FaUsers, FaBriefcase, FaCogs, FaNewspaper, FaEnvelope } from 'react-icons/fa';
 
@@ -95,7 +96,7 @@ export const NavBar = () => {
                 <NextLink
                     className='p-2 text-3xl rounded-lg text-accent'
                     href={"/"}>
-                    tectonica
+                    <Image width="100" height="100" src="/logo.svg" alt="Tectonica Logo" />
                 </NextLink>
             </div>
             <div className="hidden navbar-end md:flex">

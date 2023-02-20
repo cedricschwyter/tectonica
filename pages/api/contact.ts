@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const sendMails = async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, subject, message } = req.body;
     const msgTectonica = {
         to: process.env.COMPANY_CONTACT_EMAIL!,
@@ -27,3 +27,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(500).json({ error: 'error sending email' });
     }
 };
+
+export default sendMails;
