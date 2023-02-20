@@ -1,10 +1,14 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import Layout from "@components/Layout";
+import '../src/global.css';
 
-function MyApp({ Component, pageProps }) {
+
+function MyApp({ Component, pageProps, router }) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <>
+      <Layout data-theme="tectonica">
+        <Component className='w-screen h-screen mt-32 bg-white' {...pageProps} key={router.asPath} />
+      </Layout>
+    </>
   );
 }
 

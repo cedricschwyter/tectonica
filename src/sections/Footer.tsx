@@ -1,74 +1,16 @@
-import {
-    Box,
-    chakra,
-    Container,
-    Stack,
-    Text,
-    useColorModeValue,
-    VisuallyHidden,
-} from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { ReactNode } from 'react';
-import packageInfo from '../../package.json';
-
-const SocialButton = ({
-    children,
-    label,
-    href,
-}: {
-    children: ReactNode;
-    label: string;
-    href: string;
-}) => {
-    return (
-        <chakra.button
-            bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-            rounded={'full'}
-            w={8}
-            h={8}
-            cursor={'pointer'}
-            as={'a'}
-            href={href}
-            display={'inline-flex'}
-            alignItems={'center'}
-            justifyContent={'center'}
-            transition={'background 0.3s ease'}
-            _hover={{
-                bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-            }}>
-            <VisuallyHidden>{label}</VisuallyHidden>
-            {children}
-        </chakra.button>
-    );
-};
+import Link from "next/link";
 
 export default function Footer() {
     return (
-        <Box
-            bg={useColorModeValue('gray.50', 'gray.900')}
-            color={useColorModeValue('gray.700', 'gray.200')}>
-            <Container
-                as={Stack}
-                maxW={'6xl'}
-                py={4}
-                direction={{ base: 'column', md: 'row' }}
-                spacing={4}
-                justify={{ base: 'center', md: 'space-between' }}
-                align={{ base: 'center', md: 'center' }}>
-                <Text>© 2022 Chakra Templates. All rights reserved</Text>
-                <Text><a target={'_blank'} rel={'noreferrer'} href={'https://github.com/d3psi/tectonica/releases/tag/' + packageInfo.version}>{packageInfo.version}</a></Text>
-                <Stack direction={'row'} spacing={6}>
-                    <SocialButton label={'Twitter'} href={'#'}>
-                        <FaTwitter />
-                    </SocialButton>
-                    <SocialButton label={'YouTube'} href={'#'}>
-                        <FaYoutube />
-                    </SocialButton>
-                    <SocialButton label={'Instagram'} href={'#'}>
-                        <FaInstagram />
-                    </SocialButton>
-                </Stack>
-            </Container>
-        </Box>
+        <footer className="p-10 rounded footer footer-center bg-base-200 text-base-content">
+            <div className="grid grid-flow-col gap-4">
+                <Link className="link link-hover" href="/dienstleistungen">Dienstleistungen</Link>
+                <Link className="link link-hover" href="/aktuelles">Aktuelles</Link>
+                <Link className="link link-hover" href="/kontakt">Kontakt</Link>
+            </div>
+            <div>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved by Tectonica GmbH</p>
+            </div>
+        </footer>
     );
 }

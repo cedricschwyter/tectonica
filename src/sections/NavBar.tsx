@@ -1,200 +1,143 @@
-import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Button,
-    Stack,
-    Collapse,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuDivider,
-    Link,
-    Icon,
-} from '@chakra-ui/react';
-import {
-    HamburgerIcon,
-    CloseIcon,
-    ChevronDownIcon,
-} from '@chakra-ui/icons';
+import Image from 'next/image';
+import NextLink from 'next/link';
+import { FaChevronRight, FaChevronDown, FaBuilding, FaCamera, FaEye, FaUsers, FaBriefcase, FaCogs, FaNewspaper, FaEnvelope } from 'react-icons/fa';
+
+const navItems = [
+    {
+        name: 'Unternehmen',
+        href: '/',
+        icon: <FaBuilding />,
+        subNavItems: [
+            // {
+            //     name: 'Portrait',
+            //     href: '/portrait',
+            //     icon: <FaCamera /> // needs better icon
+            // },
+            {
+                name: 'Vision',
+                href: '/vision',
+                icon: <FaEye />
+            },
+            {
+                name: 'Team',
+                href: '/team',
+                icon: <FaUsers />
+            },
+            {
+                name: 'Jobs',
+                href: '/jobs',
+                icon: <FaBriefcase />
+            },
+        ],
+    },
+    {
+        name: 'Dienstleistungen',
+        href: '/dienstleistungen',
+        icon: <FaCogs />
+    },
+    {
+        name: 'Aktuelles',
+        href: '/aktuelles',
+        icon: <FaNewspaper />
+    },
+    {
+        name: 'Kontakt',
+        href: '/kontakt',
+        icon: <FaEnvelope />
+    },
+]
 
 export const NavBar = () => {
-    const { isOpen, onToggle } = useDisclosure();
     return (
-        <Box
-            position="fixed"
-            width="100%"
-            padding={"2%"}>
-            <Flex
-                backgroundColor={"rgba(0,0,0,0)"}
-                color={'white'}
-                minH={'60px'}
-                py={{ base: 2 }}
-                px={{ base: 4 }}
-                align={'center'}>
-                <Flex
-                    flex={{ base: 1, md: 'auto' }}
-                    ml={{ base: -2 }}
-                    display={{ base: 'flex', md: 'none' }}>
-                    <IconButton
-                        onClick={onToggle}
-                        icon={
-                            isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+        <div className="sticky top-0 z-50 w-auto sm:mx-2 sm:mb-3 sm:top-2 bg-white/70 sm:rounded-xl navbar backdrop-blur-lg">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box">
+                        {
+                            navItems.map((item, index) => {
+                                return (
+                                    <li key={index}>
+                                        <NextLink
+                                            href={item.href}
+                                            passHref
+                                        >
+                                            {item.icon}
+                                            {item.name}
+                                            {item.subNavItems && <FaChevronRight />}
+                                        </NextLink>
+                                        {item.subNavItems && (
+                                            <ul className='p-2 bg-white dropdown text-base-content'>
+                                                {item.subNavItems.map((subItem, subIndex) => {
+                                                    return (
+                                                        <li key={subIndex}>
+                                                            <NextLink
+                                                                href={subItem.href}
+                                                                passHref
+                                                            >
+                                                                {subItem.icon}
+                                                                {subItem.name}
+                                                            </NextLink>
+                                                        </li>
+                                                    )
+                                                })
+                                                }
+                                            </ul>
+                                        )
+                                        }
+                                    </li>
+                                )
+                            })
                         }
-                        variant={'ghost'}
-                        aria-label={'Toggle Navigation'}
-                    />
-                </Flex>
-                <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Text
-                        textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-                        fontSize="3xl">
-                        tectonica
-                    </Text>
-                </Flex>
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={'flex-end'}
-                    direction={'row'}
-                    spacing={6}>
-                    <Menu>
-                        <MenuButton
-                            as={Button}
-                            rounded={'full'}
-                            variant={'link'}
-                            cursor={'pointer'}
-                            minW={0}>
-                            <HamburgerIcon w={6} h={6} color='white' />
-                        </MenuButton>
-                        <MenuList bgColor='black' >
-                            <MenuItem bgColor='black'>Referenzen</MenuItem>
-                            <MenuItem bgColor='black'>Team</MenuItem>
-                            <MenuItem bgColor='black'>Jobs</MenuItem>
-                            <MenuDivider />
-                            <MenuItem bgColor='black'>Kontakt</MenuItem>
-                        </MenuList>
-                    </Menu>
-                </Stack>
-            </Flex>
-
-            <Collapse in={isOpen} animateOpacity>
-                <MobileNav />
-            </Collapse>
-        </Box >
+                    </ul>
+                </div>
+                <NextLink
+                    className='p-2 text-3xl rounded-lg text-accent'
+                    href={"/"}>
+                    <Image width="100" height="100" src="/logo.svg" alt="Tectonica Logo" />
+                </NextLink>
+            </div>
+            <div className="hidden navbar-end md:flex">
+                <ul className="px-1 menu menu-horizontal flex-nowrap">
+                    {
+                        navItems.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <NextLink
+                                        href={item.href}
+                                        passHref
+                                    >
+                                        {item.icon}
+                                        {item.name}
+                                        {item.subNavItems && <FaChevronDown />}
+                                    </NextLink>
+                                    {item.subNavItems && (
+                                        <ul className='w-full p-2 bg-white dropdown text-base-content'>
+                                            {item.subNavItems.map((subItem, subIndex) => {
+                                                return (
+                                                    <li key={subIndex}>
+                                                        <NextLink
+                                                            href={subItem.href}
+                                                            passHref
+                                                        >
+                                                            {subItem.icon}
+                                                            {subItem.name}
+                                                        </NextLink>
+                                                    </li>
+                                                )
+                                            })
+                                            }
+                                        </ul>
+                                    )
+                                    }
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        </div>
     )
 }
-const MobileNav = () => {
-    return (
-        <Stack
-            bg={useColorModeValue('white', 'gray.800')}
-            p={4}
-            display={{ md: 'none' }}>
-            {NAV_ITEMS.map((navItem) => (
-                <MobileNavItem key={navItem.label} {...navItem} />
-            ))}
-        </Stack>
-    );
-};
-
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-    const { isOpen, onToggle } = useDisclosure();
-
-    return (
-        <Stack spacing={4} onClick={children && onToggle}>
-            <Flex
-                py={2}
-                as={Link}
-                href={href ?? '#'}
-                justify={'space-between'}
-                align={'center'}
-                _hover={{
-                    textDecoration: 'none',
-                }}>
-                <Text
-                    fontWeight={600}
-                    color={useColorModeValue('gray.600', 'gray.200')}>
-                    {label}
-                </Text>
-                {children && (
-                    <Icon
-                        as={ChevronDownIcon}
-                        transition={'all .25s ease-in-out'}
-                        transform={isOpen ? 'rotate(180deg)' : ''}
-                        w={6}
-                        h={6}
-                    />
-                )}
-            </Flex>
-
-            <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-                <Stack
-                    mt={2}
-                    pl={4}
-                    borderLeft={1}
-                    borderStyle={'solid'}
-                    borderColor={useColorModeValue('gray.200', 'gray.700')}
-                    align={'start'}>
-                    {children &&
-                        children.map((child) => (
-                            <Link key={child.label} py={2} href={child.href}>
-                                {child.label}
-                            </Link>
-                    ))}
-                </Stack>
-            </Collapse>
-        </Stack>
-    );
-};
-
-interface NavItem {
-    label: string;
-    subLabel?: string;
-    children?: Array<NavItem>;
-    href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: 'Inspiration',
-        children: [
-            {
-                label: 'Explore Design Work',
-                subLabel: 'Trending Design to inspire you',
-                href: '#',
-            },
-            {
-                label: 'New & Noteworthy',
-                subLabel: 'Up-and-coming Designers',
-                href: '#',
-            },
-        ],
-    },
-    {
-        label: 'Find Work',
-        children: [
-            {
-                label: 'Job Board',
-                subLabel: 'Find your dream design job',
-                href: '#',
-            },
-            {
-                label: 'Freelance Projects',
-                subLabel: 'An exclusive list for contract work',
-                href: '#',
-            },
-        ],
-    },
-    {
-        label: 'Learn Design',
-        href: '#',
-    },
-    {
-        label: 'Hire Designers',
-        href: '#',
-    },
-];

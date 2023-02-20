@@ -1,163 +1,86 @@
-import {
-    Flex,
-    Text,
-    Stack,
-    Icon,
-    useBreakpointValue,
-    VStack,
-    SimpleGrid
-} from '@chakra-ui/react';
 import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
-import { ReactElement } from 'react';
-import { NavBar } from '../src/sections/NavBar';
-import Footer from '../src/sections/Footer';
+import { ReactElement, useEffect, useRef } from 'react';
+import { NavBar } from '@sections/NavBar';
+import Footer from '@sections/Footer';
+import PageTitle from '@components/PageTitle';
+import { AnimationControls, motion, MotionValue, useInView, useScroll, useTransform } from "framer-motion";
+import { isMobile } from 'react-device-detect'; // TODO: May be useful to disable vid on mobile
+import Background from '@components/Background'; // TODO: my mac doesn't like this but looks cool
+import Vision from '@sections/Vision';
 
-interface FeatureProps {
-    title: string;
-    icon: ReactElement;
+
+
+// TODO: Find Better images
+const imageUrls = [
+    'https://unsplash.com/photos/HOWfdzh1Q0g/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTF8fGdyZWVuJTIwY29uc3RydWN0aW9ufGVufDB8fHx8MTY3Njg4MTE5NQ&force=true',
+    'https://images.unsplash.com/photo-1553946550-4b8f3eea5451?ixlib=rb-4.0.3&ix',
+    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    'https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true',
+]
+
+function useParallax(value: MotionValue<number>, distance: number) {
+    return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-const Feature = ({ title, icon }: FeatureProps) => {
-    return (
-        <Stack>
-            <Flex
-                w={16}
-                h={16}
-                align={'center'}
-                justify={'center'}
-                color={'white'}
-                rounded={'full'}
-                bg={'gray.100'}
-                mb={1}>
-                {icon}
-            </Flex>
-            <Text fontWeight={600}>{title}</Text>
-        </Stack>
-    );
-};
 
-export default function WithSubnavigation() {
+interface SectionLandingProps {
+    image: string;
+    children?: React.ReactNode;
+    animation?: AnimationControls;
+    id: number;
+    childRef?: any;
+}
+const SectionLandingContainer = ({ image, children, id }: SectionLandingProps) => {
+    let ref = useRef(null);
+
+    // TODO: Parralax stuff not used right now
+    const { scrollYProgress } = useScroll({ target: ref });
+    const y = useParallax(scrollYProgress, 300);
+
+    const isInView = useInView(ref, { amount: 'some', once: false });
+    let childRef;
+
+    useEffect(() => { // TODO: this is probably bugged idk
+        if (ref) {
+            ref = childRef;
+        }
+    }, [ref, childRef]);
+
     return (
-        <Flex flexDirection="column">
-            <NavBar />
-            <Flex
-                w={'full'}
-                h={'100vh'}
-                backgroundImage={
-                    'url(https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
-                }
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}
+        <section className='h-screen max-h-screen overflow-auto max-w-screen'>
+            <div
+                className='flex flex-row items-center justify-center w-full h-full align-middle transition-all'
+
+                style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                }}
             >
+                <span ref={ref}></span>
+                {children}
+            </div>
+        </section>
+    )
+}
 
-                <VStack
-                    w={'full'}
-                    justify={'center'}
-                    px={useBreakpointValue({ base: 4, md: 8 })}
-                    bgGradient={'radial(blackAlpha.700, transparent)'}>
-                    <Stack
-                        maxW={'2xl'}
-                        align={'flex-start'}
-                        spacing={6}
-                        p={'10vh'}>
-                        <Text
-                            color={'white'}
-                            fontWeight={700}
-                            lineHeight={1.2}
-                            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                            eiusmod tempor
-                        </Text>
-                    </Stack>
-                </VStack>
-            </Flex>
-            <Flex
-                w={'full'}
-                h={'100vh'}
-                backgroundImage={
-                    'url(https://unsplash.com/photos/Mzm6gC4tdak/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true)'
-                }
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}>
-                <VStack
-                    w={'full'}
-                    justify={'center'}
-                    px={useBreakpointValue({ base: 4, md: 8 })}
-                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                        <Text
-                            color={'white'}
-                            fontWeight={700}
-                            lineHeight={1.2}
-                            fontSize="xl">
-                            Vorstellung
-                        </Text>
-                    </Stack>
-                </VStack>
-            </Flex>
-            <Flex
-                w={'full'}
-                h={'100vh'}
-                backgroundImage={
-                    'url(https://unsplash.com/photos/ozAUtewYULI/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgzMjg&force=true)'
-                }
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}>
-                <VStack
-                    w={'full'}
-                    justify={'center'}
-                    px={useBreakpointValue({ base: 4, md: 8 })}
-                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                        <Text
-                            color={'white'}
-                            fontWeight={700}
-                            lineHeight={1.2}
-                            fontSize="xl">
-                            Philosophie
-                        </Text>
-                    </Stack>
-                </VStack>
-            </Flex>
-            <Flex
-                w={'full'}
-                h={'100vh'}
-                backgroundImage={
-                    'url(https://unsplash.com/photos/BeOEIEw1WOk/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTg2OTY&force=true)'
-                }
-                backgroundSize={'cover'}
-                backgroundPosition={'center center'}>
-                <VStack
-                    w={'full'}
-                    justify={'center'}
-                    px={useBreakpointValue({ base: 4, md: 8 })}
-                    bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
-                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                        <Text
-                            color={'white'}
-                            fontWeight={700}
-                            lineHeight={1.2}
-                            fontSize="xl">
-                            Vision
-                        </Text>
-                        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-                            <Feature
-                                icon={<Icon as={FcAssistant} w={10} h={10} />}
-                                title={'Augenhöhe (Rhigetti Partner)'}
-                            />
-                            <Feature
-                                icon={<Icon as={FcDonate} w={10} h={10} />}
-                                title={'Denken auch ausserhalb des normalen Rahmens'}
-                            />
-                            <Feature
-                                icon={<Icon as={FcInTransit} w={10} h={10} />}
-                                title={'Den Ernst in die Sache investieren nicht in die Person'}
-                            />
-                        </SimpleGrid>
-                    </Stack>
-                </VStack>
-            </Flex>
-            <Footer />
-        </Flex >
+const LandingPage = () => {
+    return (
+        <>
+            <PageTitle title={"tectonica | Baurealisationen"} />
+            <div className='flex flex-col'>
+                <>
+                    {[0, 1, 2, 3].map((id) => (
+                        <SectionLandingContainer image={imageUrls[id]} id={id} key={id} />
+                    ))}
+                </>
+                <SectionLandingContainer image={imageUrls[2]} id={2} key={2} >
+                    <Vision />
+                </SectionLandingContainer>
+            </div>
+        </>
     );
 }
+
+export default LandingPage;
