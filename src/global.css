@@ -6,7 +6,8 @@
 html {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-      
+    scroll-padding-top: 4rem; /* TODO: No magic number */
+    
 }
 
 t-gradient {

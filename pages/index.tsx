@@ -7,6 +7,10 @@ import { AnimationControls, motion, MotionValue, useInView, useScroll, useTransf
 import { isMobile } from 'react-device-detect'; // TODO: May be useful to disable vid on mobile
 import Background from '@components/Background'; // TODO: my mac doesn't like this but looks cool
 import Vision from '@sections/Vision';
+import Philosophie from '@sections/Philosophie';
+import Karriere from '@sections/Karriere';
+import Team from '@sections/Team';
+import Hero from '@sections/Hero';
 
 
 
@@ -24,13 +28,13 @@ function useParallax(value: MotionValue<number>, distance: number) {
 
 
 interface SectionLandingProps {
-    image: string;
+    image?: string;
     children?: React.ReactNode;
     animation?: AnimationControls;
-    id: number;
+    hashId: string;
     childRef?: any;
 }
-const SectionLandingContainer = ({ image, children, id }: SectionLandingProps) => {
+const SectionLandingContainer = ({ image, children, hashId }: SectionLandingProps) => {
     let ref = useRef(null);
 
     // TODO: Parralax stuff not used right now
@@ -47,20 +51,9 @@ const SectionLandingContainer = ({ image, children, id }: SectionLandingProps) =
     }, [ref, childRef]);
 
     return (
-        <section className='h-screen max-h-screen overflow-auto max-w-screen'>
-            <div
-                className='flex flex-row items-center justify-center w-full h-full align-middle transition-all'
-
-                style={{
-                    backgroundImage: `url(${image})`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                }}
-            >
-                <span ref={ref}></span>
-                {children}
-            </div>
+        <section className='min-h-screen' id={hashId}>
+            <span ref={ref}></span>
+            {children}
         </section>
     )
 }
@@ -69,16 +62,21 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
-            <div className='flex flex-col'>
-                <>
-                    {[0, 1, 2, 3].map((id) => (
-                        <SectionLandingContainer image={imageUrls[id]} id={id} key={id} />
-                    ))}
-                </>
-                <SectionLandingContainer image={imageUrls[2]} id={2} key={2} >
-                    <Vision />
-                </SectionLandingContainer>
-            </div>
+            <section id="hero" className="min-h-screen">
+                <Hero />
+            </section>
+            <section id="philosophie" className="min-h-screen">
+                <Philosophie />
+            </section>
+            <section id="vision" className="min-h-screen">
+                <Vision />
+            </section>
+            <section id="team" className="min-h-screen">
+                <Team />
+            </section>
+            <section id="Karriere" className="min-h-screen">
+                <Karriere />
+            </section>
         </>
     );
 }

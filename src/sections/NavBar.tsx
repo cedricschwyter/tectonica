@@ -10,22 +10,22 @@ const navItems = [
         subNavItems: [
             {
                 name: 'Philosophie',
-                href: '#philosophie',
+                href: '/#philosophie',
                 icon: <FaBookOpen /> // needs better icon
             },
             {
                 name: 'Vision',
-                href: '#vision',
+                href: '/#vision',
                 icon: <FaEye />
             },
             {
                 name: 'Team',
-                href: '/team',
+                href: '/#team',
                 icon: <FaUsers />
             },
             {
-                name: 'Jobs',
-                href: '/jobs',
+                name: 'Karriere',
+                href: '/#karriere',
                 icon: <FaBriefcase />
             },
         ],
