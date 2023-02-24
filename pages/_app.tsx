@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Layout data-theme="tectonica">
-        <Component className='w-screen h-screen mt-32 bg-white' {...pageProps} key={router.asPath} />
+        <Component className='mt-32 bg-white' {...pageProps} key={router.asPath} />
       </Layout>
     </>
   );
