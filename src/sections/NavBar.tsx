@@ -15,7 +15,7 @@ const navItems = [
             // },
             {
                 name: 'Vision',
-                href: '/vision',
+                href: '/#vision',
                 icon: <FaEye />
             },
             {
@@ -107,6 +107,7 @@ export const NavBar = () => {
                                 <li key={index}>
                                     <NextLink
                                         href={item.href}
+                                        scroll={false}
                                         passHref
                                     >
                                         {item.icon}
@@ -119,6 +120,7 @@ export const NavBar = () => {
                                                 return (
                                                     <li key={subIndex}>
                                                         <NextLink
+                                                            scroll={false}
                                                             href={subItem.href}
                                                             passHref
                                                         >

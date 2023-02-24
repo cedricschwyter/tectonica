@@ -6,14 +6,13 @@ import { PropsWithChildren } from "react";
 
 const Layout = ({ children }: PropsWithChildren) => {
     const { asPath } = useRouter();
-
     return (
         <>
             <NavBar />
-            <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+            <AnimatePresence mode="wait" initial={false}  >
                 <motion.div
                     key={asPath}
-                    className="w-full min-h-screen"
+                    className="w-full min-h-screen scroll-smooth"
                     initial={{ y: 500, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 500, opacity: 0 }}

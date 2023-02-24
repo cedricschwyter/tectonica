@@ -10,7 +10,7 @@ const FeatureCard = ({ title, icon, text }: FeatureProps) => {
     return (
         <div
             style={{
-                background: 'linear-gradient(125deg, rgba(0,123,132,.3) 0%, rgba(0,0,0,.7) 100%);'
+                background: 'linear-gradient(125deg, rgba(0,123,132,.3) 0%, rgba(0,0,0,.7) 100%)'
             }}
             className='text-white group min-w-[330px] w-full backdrop-blur-xl rounded-xl gap-3 p-4 pt-8 shadow-xl flex justify-start justify-items-start hover:shadow-xl transition-all flex-col'>
             <div className='z-10 flex flex-col w-full h-full gap-5 justify-left justify-items-start'>
@@ -32,12 +32,12 @@ export const Vision = () => {
     return (
         <>
             <div id="filter" className='absolute z-0 w-full h-full bg-black/30'></div>
-            <div className='z-10 flex flex-col w-full gap-12 p-5 transition-all rounded-lg bg-black/0 lg:gap-16 md:p-10 md:m-5'>
+            <div id='vision' className='z-10 flex flex-col w-full gap-12 p-5 transition-all rounded-lg bg-black/0 lg:gap-16 md:p-10 md:m-5'>
                 <h2 className='self-center font-semibold text-white lg:text-9xl text-8xl'>
                     Vision
                 </h2>
 
-                <div className="flex flex-row justify-start w-full gap-8 p-10 overflow-x-auto overflow-y-hidden lg:gap-16 rounded-xl" >
+                <div className="flex flex-row justify-start w-full gap-8 p-10 lg:gap-16 rounded-xl" >
                     <FeatureCard
                         icon={<FcAssistant width={iconSize} height={iconSize} />}
                         title={'Augenhöhe (Rhigetti Partner)'}
