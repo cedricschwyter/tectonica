@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { FaChevronRight, FaChevronDown, FaBuilding, FaCamera, FaEye, FaUsers, FaBriefcase, FaCogs, FaNewspaper, FaEnvelope } from 'react-icons/fa';
+import { FaChevronRight, FaChevronDown, FaBuilding, FaBookOpen, FaEye, FaUsers, FaBriefcase, FaCogs, FaNewspaper, FaEnvelope } from 'react-icons/fa';
 
 const navItems = [
     {
@@ -8,14 +8,14 @@ const navItems = [
         href: '/',
         icon: <FaBuilding />,
         subNavItems: [
-            // {
-            //     name: 'Portrait',
-            //     href: '/portrait',
-            //     icon: <FaCamera /> // needs better icon
-            // },
+            {
+                name: 'Philosophie',
+                href: '#philosophie',
+                icon: <FaBookOpen /> // needs better icon
+            },
             {
                 name: 'Vision',
-                href: '/#vision',
+                href: '#vision',
                 icon: <FaEye />
             },
             {
