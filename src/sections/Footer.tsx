@@ -9,7 +9,7 @@ export default function Footer() {
                 <Link className="link link-hover" href="/kontakt">Kontakt</Link>
             </div>
             <div>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by Tectonica GmbH</p>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved by tectonica GmbH</p>
             </div>
         </footer>
     );
