@@ -31,35 +31,29 @@ export const Vision = () => {
 
     return (
         <>
-            <div id="filter" className='absolute z-0 w-full h-full bg-black/30'></div>
-            <div className='z-10 flex flex-col w-full gap-12 p-5 transition-all rounded-lg bg-black/0 lg:gap-16 md:p-10 md:m-5'>
-                <h2 className='self-center font-semibold text-white lg:text-9xl text-8xl'>
-                    Vision
-                </h2>
+            <div id="vision" className="grid w-full min-h-screen grid-cols-12 grid-rows-6 shadow-lg" style={{
+                backgroundImage: 'url(https://unsplash.com/photos/8KfCR12oeUM/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjc2ODAxMzU1&force=true&w=2400)',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+            }}>
 
-                <div className="flex flex-row justify-start w-full gap-8 p-10 lg:gap-16 rounded-xl" >
-                    <FeatureCard
-                        icon={<FcAssistant width={iconSize} height={iconSize} />}
-                        title={'Augenhöhe (Rhigetti Partner)'}
-                        text='Unsere Vision für eine erfolgreiche Baufirma ist es, immer auf Augenhöhe mit unseren Partnern und Kunden zu agieren. Wir schätzen eine offene und transparente Kommunikation, bei der wir gemeinsam nach Lösungen suchen und die Bedürfnisse unserer Kunden im Fokus haben.'
-                    />
-                    <FeatureCard
-                        icon={<FcDonate width={iconSize} height={iconSize} />}
-                        title={'Denken auch ausserhalb des normalen Rahmens'}
-                        text='Wir denken auch ausserhalb des normalen Rahmens und bringen neue und innovative Ideen in den Bauprozess ein. Dabei legen wir besonderen Wert auf Nachhaltigkeit und effiziente Arbeitsabläufe.'
-                    />
-                    <FeatureCard
-                        icon={<FcInTransit width={iconSize} height={iconSize} />}
-                        title={'Den Ernst in die Sache investieren nicht in die Person'}
-                        text='Unsere Vision ist es, als führende Baufirma anerkannt zu werden, die für ihre exzellenten Leistungen, ihre innovativen Lösungen und ihre integre Arbeitsweise bekannt ist. Wir möchten eine positive Veränderung in der Baubranche bewirken und zeigen, dass es möglich ist, erfolgreich zu sein und gleichzeitig Verantwortung für unsere Umwelt und Gesellschaft zu übernehmen.'
-                    />
-                </div>
-                <div
-                    style={{
-                        background: 'linear-gradient(125deg, rgba(0,123,132,.2) 0%, rgba(0,0,0,.2) 100%);'
-                    }}
-                    className='t-gradient p-4 rounded-xl text-xl text-white font-bold backdrop-blur-xl hover:scale-110 transition-all md:mx-[41%] text-center  shadow-xl'>
-                    Kontakt
+                <div className="flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg sm:row-start-2 sm:col-span-8 col-span-full sm:col-start-2 sm:row-span-4 sm:flex-row lg:col-span-8 lg:col-start-2 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-md">
+                    <div className="flex flex-col w-full m-1 sm:translate-x-1/3 sm:translate-y-0 translate-y-1/4 2xl:translate-x-[16.666667%] rounded-2xl sm:m-0">
+                        <div className="m-4 text-4xl font-bold text-center text-white grow">
+                            Vision
+                        </div>
+                        <div className="text-white">
+                            Serioes in Planung, Ausfuehrung und Kostenkontrolle
+                        </div>
+                        <div className="text-white">
+                            Unser oberstes Credo ist die in jeder Hinsicht erfolgreiche Umsetzung Ihres Bauvorhabens.
+                            Unsere langjaehrige Erfahrung garantiert Ihnen eine qualitativ hochstehende Ausfuehrung Ihres Bauobjektes. Mit Kompetenz, Innovation und guter Vernetzung zu Architekten und Fachplanern bieten wir Ihnen eine komplette und erfolgreiche Bauabwicklung aus einer Hand.
+                            Wo immer moeglich arbeiten wir mit ausgewiesenen lokalen Unternehmen um damit unseren Beitrag an die Wirtschaftlichkeit des Arbeitsplatzes Schweiz zu leisten. Genau so viel Wert legen wir bei unseren Bauobjekten auf zukunftsweisende energetische und oekologische Standards.
+                        </div>
+                    </div>
+                    <div id='map' className="w-full translate-y-1/2 bg-blue-400 shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl sm:hover:scale-105">
+                    </div>
                 </div>
             </div>
         </>

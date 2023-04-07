@@ -1,13 +1,13 @@
 interface PhilosophieProps {
-  // children: ReactNode;
+    // children: ReactNode;
 }
 
 const Philosophie = ({ }: PhilosophieProps) => {
-  return (
-    <>
-      <h1>Philosophie</h1>
-    </>
-  );
+    return (
+        <>
+            <h1 id="philosophie">Philosophie</h1>
+        </>
+    );
 }
 
 export default Philosophie;

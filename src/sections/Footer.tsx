@@ -10,6 +10,7 @@ export default function Footer() {
             </div>
             <div>
                 <p>Copyright © {new Date().getFullYear()} - All right reserved by tectonica GmbH</p>
+                <Link className="link link-hover" href="/rechtliches">Rechtliches</Link>
             </div>
         </footer>
     );

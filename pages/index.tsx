@@ -12,16 +12,6 @@ import Karriere from '@sections/Karriere';
 import Team from '@sections/Team';
 import Hero from '@sections/Hero';
 
-
-
-// TODO: Find Better images
-const imageUrls = [
-    'https://unsplash.com/photos/HOWfdzh1Q0g/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTF8fGdyZWVuJTIwY29uc3RydWN0aW9ufGVufDB8fHx8MTY3Njg4MTE5NQ&force=true',
-    'https://images.unsplash.com/photo-1553946550-4b8f3eea5451?ixlib=rb-4.0.3&ix',
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    'https://unsplash.com/photos/h2yOqTOFu1w/download?ixid=MnwxMjA3fDB8MXx0b3BpY3x8TThqVmJMYlRSd3N8fHx8fDJ8fDE2NjkwNTgxOTk&force=true',
-]
-
 function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);
 }
