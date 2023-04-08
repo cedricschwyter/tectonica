@@ -80,7 +80,7 @@ const LandingPage = () => {
             <section id="vision" className="min-h-screen">
                 <Vision />
             </section>
-            <section id="team" className="min-h-screen">
+            <section id="team">
                 <Team />
             </section>
             <section id="Karriere" className="min-h-screen">
