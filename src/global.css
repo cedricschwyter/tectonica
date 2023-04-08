@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    scroll-padding-top: 4rem; /* TODO: No magic number */
-    
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem; /* TODO: No magic number */
 }
 
 t-gradient {
-    background: 'linear-gradient(125deg, rgba(0,123,132,.3) 0%, rgba(0,0,0,.7) 100%);'
+  background: "linear-gradient(125deg, rgba(0,123,132,.3) 0%, rgba(0,0,0,.7) 100%);";
 }

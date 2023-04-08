@@ -1,5 +1,5 @@
 import PageTitle from "@components/PageTitle";
-import NextLink from 'next/link';
+import NextLink from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
@@ -111,8 +111,46 @@ const Aktuelles = () => {
                     }
                 </div>
             </div>
-        </>
-    );
-}
+            <div className="m-4 text-2xl text-center text-white grow">
+              {cardItems[index].description}
+            </div>
+            <div className="flex justify-between">
+              <div
+                className="btn"
+                onClick={() =>
+                  setIndex((index - 1 + cardItems.length) % cardItems.length)
+                }
+              >
+                <FaArrowLeft />
+              </div>
+              <NextLink href={cardItems[index].referenceSheet} target="_blank">
+                <div className="btn">
+                  <FaDownload className="m-1" />
+                  <p>Download Referenzblatt</p>
+                </div>
+              </NextLink>
+              <div
+                className="btn"
+                onClick={() => setIndex((index + 1) % cardItems.length)}
+              >
+                <FaArrowRight />
+              </div>
+            </div>
+          </div>
+          <div className="w-full translate-y-1/2 bg-blue-400 shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl sm:hover:scale-105 object-contain">
+            <NextLink href={cardItems[index].image} target="_blank">
+              <Image
+                className="rounded-xl object-cover"
+                src={cardItems[index].image}
+                layout="fill"
+                alt={`${cardItems[index].projectName} image`}
+              />
+            </NextLink>
+          </div>
+        </div >
+      </div >
+    </>
+  );
+};
 
 export default Aktuelles;
