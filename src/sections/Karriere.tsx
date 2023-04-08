@@ -5,12 +5,7 @@ interface KarriereProps {
 const Karriere = ({ }: KarriereProps) => {
     return (
         <>
-            <div id="karriere" className="grid w-full min-h-screen grid-cols-12 grid-rows-6 shadow-lg" style={{
-                backgroundImage: 'url(https://unsplash.com/photos/8KfCR12oeUM/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjc2ODAxMzU1&force=true&w=2400)',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-            }}>
+            <div id="karriere" className="grid w-full min-h-screen grid-cols-12 grid-rows-6 shadow-lg">
 
                 <div className="flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg sm:row-start-2 sm:col-span-8 col-span-full sm:col-start-2 sm:row-span-4 sm:flex-row lg:col-span-8 lg:col-start-2 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-md">
                     <div className="flex flex-col w-full m-1 sm:translate-x-1/3 sm:translate-y-0 translate-y-1/4 2xl:translate-x-[16.666667%] rounded-2xl sm:m-0">

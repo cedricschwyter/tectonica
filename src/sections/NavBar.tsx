@@ -9,11 +9,6 @@ const navItems = [
         icon: <FaBuilding />,
         subNavItems: [
             {
-                name: 'Philosophie',
-                href: '/#philosophie',
-                icon: <FaBookOpen /> // needs better icon
-            },
-            {
                 name: 'Vision',
                 href: '/#vision',
                 icon: <FaEye />
