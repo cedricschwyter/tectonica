@@ -32,7 +32,7 @@ const Karriere = ({ }: KarriereProps) => {
                                 einem kleinen Team? Dann freuen wir uns auf Ihre vollstaendige
                                 Bewerbung per Mail an{" "}
                                 <a
-                                    className="text-teal-500 font-bold hover:text-2xl transition-all"
+                                    className="text-teal-500 font-bold "
                                     href="mailto:nicole.loetscher@tectonica-bau.ch"
                                 >
                                     nicole.loetscher@tectonica-bau.ch
