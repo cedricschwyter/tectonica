@@ -6,7 +6,7 @@ const Karriere = ({ }: KarriereProps) => {
     return (
         <>
             <div id="karriere" className="flex m-2">
-                <div className="flex pb-24 pt-20 h-full w-full m-2 md:mx-[20%] shadow-lg rounded-xl bg-black/40 backdrop-blur-xl hover:shadow-teal-600 hover:shadow-2xl transition-all">
+                <div className="flex pb-24 pt-20 h-full w-full m-2 md:mx-[20%] shadow-lg rounded-xl bg-black/40 backdrop-blur-xl transition-all">
                     <div className="p-3">
                         <h1 className="mb-6 text-6xl font-bold text-white grow">
                             Karriere

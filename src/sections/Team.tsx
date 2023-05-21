@@ -50,7 +50,7 @@ const Team = ({ }: TeamProps) => {
                         {row.map((element, index) => {
                             return (
                                 <div className="mb-24 mx-2" key={index}>
-                                    <div className="rounded-lg hover:shadow-teal-600 hover:shadow-3xl hover:scale-105 transition-all shadow-lg h-full block bg-black/25 backdrop-blur-md text-white min-w-[370px] ">
+                                    <div className="rounded-lg hover:scale-105 transition-all shadow-lg h-full block bg-black/25 backdrop-blur-md text-white min-w-[370px] ">
                                         <div className="flex justify-center">
                                             <div className="flex justify-center -mt-[75px]">
                                                 <Image

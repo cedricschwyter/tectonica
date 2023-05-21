@@ -42,7 +42,7 @@ const Aktuelles = () => {
                         </div>
                         <div className="flex justify-between">
                             <div
-                                className="btn"
+                                className="btn bg-transparent text-white hover:text-teal-600 hover:border-teal-600 hover:bg-transparent"
                                 onClick={() =>
                                     setIndex((index - 1 + cardItems.length) % cardItems.length)
                                 }
@@ -50,13 +50,13 @@ const Aktuelles = () => {
                                 <FaArrowLeft />
                             </div>
                             <NextLink href={cardItems[index].referenceSheet} target="_blank">
-                                <div className="btn">
+                                <div className="btn bg-transparent text-white hover:text-teal-600 hover:border-teal-600 hover:bg-transparent">
                                     <FaDownload className="m-1" />
                                     <p>Download Referenzblatt</p>
                                 </div>
                             </NextLink>
                             <div
-                                className="btn"
+                                className="btn bg-transparent text-white hover:text-teal-600 hover:border-teal-600 hover:bg-transparent"
                                 onClick={() => setIndex((index + 1) % cardItems.length)}
                             >
                                 <FaArrowRight />
