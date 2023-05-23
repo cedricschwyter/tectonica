@@ -16,16 +16,16 @@ function Dienstleistungen() {
                             umfassen die Bereiche
                         </div>
                         <ul className="text-white">
-                            <li>Bauherrenberatung</li>
-                            <li>Kostenschätzung</li>
-                            <li>Kostenvoranschlag</li>
-                            <li>Devisierung</li>
-                            <li>Bauausschreibungen</li>
-                            <li>Terminplanung</li>
-                            <li>Bau- und Projektleitung</li>
-                            <li>Kostenkontrolle</li>
-                            <li>Troubleshooting</li>
-                            <li>Qualitätssicherung</li>
+                            <li className="list-disc">Bauherrenberatung</li>
+                            <li className="list-disc">Kostenschätzung</li>
+                            <li className="list-disc">Kostenvoranschlag</li>
+                            <li className="list-disc">Devisierung</li>
+                            <li className="list-disc">Bauausschreibungen</li>
+                            <li className="list-disc">Terminplanung</li>
+                            <li className="list-disc">Bau- und Projektleitung</li>
+                            <li className="list-disc">Kostenkontrolle</li>
+                            <li className="list-disc">Troubleshooting</li>
+                            <li className="list-disc">Qualitätssicherung</li>
                         </ul>
                     </div>
                     <div
