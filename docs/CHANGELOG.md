@@ -1,3 +1,12 @@
+## **0.4.0** <sub><sup>2023-05-22 ([741365a...c268faa](https://github.com/d3psi/tectonica/compare/741365a...c268faa?diff=split))</sup></sub>
+
+### Features
+* add reference sheets ([c268faa](https://github.com/d3psi/tectonica/commit/c268faa))
+
+### Bug Fixes
+* small design fixes ([2252ec7](https://github.com/d3psi/tectonica/commit/2252ec7))
+
+
 ## **0.3.0** <sub><sup>2023-04-10 ([5c531d6...2cde06e](https://github.com/d3psi/tectonica/compare/5c531d6...2cde06e?diff=split))</sup></sub>
 
 ### Features
