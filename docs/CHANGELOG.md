@@ -1,3 +1,12 @@
+## **0.5.0** <sub><sup>2023-05-23 ([edf06c1...199249c](https://github.com/d3psi/tectonica/compare/edf06c1...199249c?diff=split))</sup></sub>
+
+### Features
+* prettify ([3878389](https://github.com/d3psi/tectonica/commit/3878389))
+
+### Bug Fixes
+* typos ([199249c](https://github.com/d3psi/tectonica/commit/199249c))
+
+
 ## **0.4.0** <sub><sup>2023-05-22 ([741365a...c268faa](https://github.com/d3psi/tectonica/compare/741365a...c268faa?diff=split))</sup></sub>
 
 ### Features
