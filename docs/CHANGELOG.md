@@ -1,3 +1,9 @@
+## **0.5.3** <sub><sup>2023-05-23 ([621dfb2...3dd743a](https://github.com/d3psi/tectonica/compare/621dfb2...3dd743a?diff=split))</sup></sub>
+
+### Bug Fixes
+* add list ([3dd743a](https://github.com/d3psi/tectonica/commit/3dd743a))
+
+
 ## **0.5.2** <sub><sup>2023-05-23 ([a86cc19...36580e7](https://github.com/d3psi/tectonica/compare/a86cc19...36580e7?diff=split))</sup></sub>
 
 ### Bug Fixes
