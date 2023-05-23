@@ -8,16 +8,16 @@ const LandingPage = () => {
     return (
         <>
             <PageTitle title={"tectonica | Baurealisationen"} />
-            <section id="hero">
+            <section id="hero" className="min-h-screen">
                 <Hero />
             </section>
-            <section id="vision">
+            <section id="vision" className="min-h-screen">
                 <Vision />
             </section>
-            <section id="team">
+            <section id="team" className="min-h-screen">
                 <Team />
             </section>
-            <section id="karriere">
+            <section id="karriere" className="min-h-screen">
                 <Karriere />
             </section>
         </>
