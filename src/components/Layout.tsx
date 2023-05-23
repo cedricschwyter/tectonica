@@ -19,23 +19,7 @@ const Layout = ({ children }: PropsWithChildren) => {
                     backgroundSize: "cover",
                 }}
             ></div>
-
-            <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                    key={asPath}
-                    className="w-full scroll-smooth"
-                    initial={{ y: 500, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 500, opacity: 0 }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 200,
-                        damping: 20,
-                    }}
-                >
-                    {children}
-                </motion.div>
-            </AnimatePresence>
+            {children}
             <Footer />
         </>
     );

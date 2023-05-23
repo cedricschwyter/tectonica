@@ -114,7 +114,7 @@ export const NavBar = () => {
                     {navItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <NextLink href={item.href} scroll={false} passHref>
+                                <NextLink href={item.href} scroll={true} passHref>
                                     {item.icon}
                                     {item.name}
                                     {item.subNavItems && <FaChevronDown />}
@@ -124,7 +124,7 @@ export const NavBar = () => {
                                         {item.subNavItems.map((subItem, subIndex) => {
                                             return (
                                                 <li key={subIndex}>
-                                                    <NextLink scroll={false} href={subItem.href} passHref>
+                                                    <NextLink scroll={true} href={subItem.href} passHref>
                                                         {subItem.icon}
                                                         {subItem.name}
                                                     </NextLink>
