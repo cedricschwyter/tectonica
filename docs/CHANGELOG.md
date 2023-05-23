@@ -1,3 +1,9 @@
+## **0.5.1** <sub><sup>2023-05-23 ([8440454...8440454](https://github.com/d3psi/tectonica/compare/8440454...8440454?diff=split))</sup></sub>
+
+### Bug Fixes
+* remove scroll ([8440454](https://github.com/d3psi/tectonica/commit/8440454))
+
+
 ## **0.5.0** <sub><sup>2023-05-23 ([edf06c1...199249c](https://github.com/d3psi/tectonica/compare/edf06c1...199249c?diff=split))</sup></sub>
 
 ### Features
