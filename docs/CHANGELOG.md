@@ -1,3 +1,8 @@
+## **0.5.4** <sub><sup>2023-06-22 ([6bf6db3...2ebe85f](https://github.com/d3psi/tectonica/compare/6bf6db3...2ebe85f?diff=split))</sup></sub>
+
+*no relevant changes*
+
+
 ## **0.5.3** <sub><sup>2023-05-23 ([621dfb2...3dd743a](https://github.com/d3psi/tectonica/compare/621dfb2...3dd743a?diff=split))</sup></sub>
 
 ### Bug Fixes
