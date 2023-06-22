@@ -42,8 +42,8 @@ const navItems = [
         icon: <FaCogs />,
     },
     {
-        name: "Aktuelles",
-        href: "/aktuelles",
+        name: "Referenzen",
+        href: "/referenzen",
         icon: <FaNewspaper />,
     },
     {

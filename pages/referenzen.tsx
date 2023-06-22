@@ -103,12 +103,12 @@ const cardItems = [
     },
 ];
 
-const Aktuelles = () => {
+const Referenzen = () => {
     const [index, setIndex] = useState(0);
 
     return (
         <>
-            <PageTitle title={"tectonica | Aktuelles"} />
+            <PageTitle title={"tectonica | Referenzen"} />
             <div className="grid w-full min-h-screen grid-cols-12 grid-rows-6 justify-center">
                 <div className="flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg sm:row-start-2 sm:col-span-8 col-span-full sm:col-start-2 sm:row-span-4 sm:flex-row lg:col-span-8 lg:col-start-2 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-md">
                     <div className={cardItems[index].image ? "flex flex-col w-full m-1 sm:translate-x-1/3 sm:translate-y-0 translate-y-1/4 2xl:translate-x-[16.666667%] rounded-2xl sm:m-0" : "flex flex-col w-full m-1 sm:translate-y-0 translate-y-1/4 rounded-2xl sm:m-0"}>
@@ -161,4 +161,4 @@ const Aktuelles = () => {
     );
 };
 
-export default Aktuelles;
+export default Referenzen;

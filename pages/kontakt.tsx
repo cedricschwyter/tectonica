@@ -62,15 +62,29 @@ const Kontakt = () => {
                     />
                 </form>
                 <div className="flex flex-col text-white items-center">
-                    <div className="m-4 text-2xl font-bold text-center text-white grow">
-                        Anschrift
+                    <div className="flex flex-col items-center justify-center m-4">
+                        <div className="m-4 text-2xl font-bold text-center text-white grow">
+                            Email
+                        </div>
+                        <div>
+                            <a href="mailto:info@tectonica-bau.ch" className="hover:text-teal-600">info@tectonica-bau.ch</a>
+                        </div>
                     </div>
-                    <div>tectonica GmbH</div>
-                    <div>Vogelaustrasse 46</div>
-                    <div>8953 Dietikon</div>
-                    <div>
-                        E-Mail:{" "}
-                        <a href="mailto:info@tectonica-bau.ch">info@tectonica-bau.ch</a>
+                    <div className="flex flex-col items-center justify-center m-4">
+                        <div className="m-4 text-2xl font-bold text-center text-white grow">
+                            Büro
+                        </div>
+                        <div>tectonica GmbH</div>
+                        <div>Vogelaustrasse 46</div>
+                        <div>8953 Dietikon</div>
+                    </div>
+                    <div className="flex flex-col items-center justify-center m-4">
+                        <div className="m-4 text-2xl font-bold text-center text-white grow">
+                            Postadresse
+                        </div>
+                        <div>tectonica GmbH</div>
+                        <div>Holzmattstrasse 9</div>
+                        <div>8953 Dietikon</div>
                     </div>
                 </div>
             </>
