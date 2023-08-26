@@ -1,3 +1,9 @@
+## **0.6.0** <sub><sup>2023-08-26 ([74214a0...f29ad94](https://github.com/d3psi/tectonica/compare/74214a0...f29ad94?diff=split))</sup></sub>
+
+### Features
+* change background, embed pdfs ([f29ad94](https://github.com/d3psi/tectonica/commit/f29ad94))
+
+
 ## **0.5.4** <sub><sup>2023-06-22 ([6bf6db3...2ebe85f](https://github.com/d3psi/tectonica/compare/6bf6db3...2ebe85f?diff=split))</sup></sub>
 
 *no relevant changes*
