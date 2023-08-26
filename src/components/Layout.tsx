@@ -13,7 +13,7 @@ const Layout = ({ children }: PropsWithChildren) => {
                 className="fixed top-0 left-0 grid w-full min-h-screen grid-cols-12 -z-10 grid-rows-6 shadow-lg"
                 style={{
                     backgroundImage:
-                        "url(https://unsplash.com/photos/8KfCR12oeUM/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjc2ODAxMzU1&force=true&w=2400)",
+                        "url(https://unsplash.com/photos/PhPRkINZNfM/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjkzMDUwMzAxfA&force=true)",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
