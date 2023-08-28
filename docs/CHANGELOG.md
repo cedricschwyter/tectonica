@@ -1,3 +1,9 @@
+## **0.7.0** <sub><sup>2023-08-28 ([97e292f...f29dcdd](https://github.com/d3psi/tectonica/compare/97e292f...f29dcdd?diff=split))</sup></sub>
+
+### Features
+* remove placeholder ([f29dcdd](https://github.com/d3psi/tectonica/commit/f29dcdd))
+
+
 ## **0.6.1** <sub><sup>2023-08-26 ([dca18ea...06f581b](https://github.com/d3psi/tectonica/compare/dca18ea...06f581b?diff=split))</sup></sub>
 
 *no relevant changes*
