@@ -9,12 +9,12 @@ const Team = ({ }: TeamProps) => {
     const members = [
         [
             {
-                name: "Thomas Lötscher",
+                name: "Thomas Loetscher",
                 picture: "/img/profile.jpg",
                 position: "dipl. Bauleiter HFP, Geschäftsführer",
             },
             {
-                name: "Nicole Lötscher",
+                name: "Nicole Loetscher",
                 picture: "/img/profile.jpg",
                 position: "Finanzen und Administration",
             },
