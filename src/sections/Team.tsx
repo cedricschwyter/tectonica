@@ -26,11 +26,6 @@ const Team = ({ }: TeamProps) => {
                 position: "Abt. Fertigungstechnik",
             },
             {
-                name: "Teo Rigas",
-                picture: "/img/profile.jpg",
-                position: "dipl. Architekt ETH/SIA, beratender Architekt",
-            },
-            {
                 name: "Cedric Schwyter",
                 picture: "/img/IMG_0243.jpg",
                 position: "Software-Ingenieur, EDV Verantwortlicher",
@@ -40,7 +35,7 @@ const Team = ({ }: TeamProps) => {
 
     return (
         <div className="flex w-full min-h-screen grid-cols-12 grid-rows-6 justify-center">
-            <div className="flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg sm:row-start-2 sm:col-span-8 col-span-full sm:col-start-2 sm:row-span-4 sm:flex-row lg:col-span-8 lg:col-start-2 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-md">
+            <div className="flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg sm:row-start-2 sm:col-span-8 col-span-full sm:col-start-2 sm:row-span-4 sm:flex-row lg:col-span-8 lg:col-start-2 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-md px-5">
                 <div className="flex flex-col w-full m-1 sm:translate-y-0 translate-y-1/4 rounded-2xl sm:m-0 items-center">
                     <div className="m-4 text-6xl font-bold text-center text-white grow">
                         Team
