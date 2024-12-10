@@ -15,14 +15,6 @@ const Hero = () => {
                         className="w-full translate-y-1/2 bg-blue-400 shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl sm:hover:scale-105"
                     >
                     </div>
-                    <div className="flex flex-col">
-                        <div className="m-4 text-4xl">
-                            Aktuelles
-                        </div>
-                        <div>
-                            Todo
-                        </div>
-                    </div>
                 </div>
             </div>
         </div >
