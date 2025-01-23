@@ -1,3 +1,8 @@
+## **0.8.2** <sub><sup>2025-01-23 ([0d33062...1c6cf30](https://github.com/d3psi/tectonica/compare/0d33062...1c6cf30?diff=split))</sup></sub>
+
+*no relevant changes*
+
+
 ## **0.8.1** <sub><sup>2024-12-10 ([930e62e...6b7ea2e](https://github.com/d3psi/tectonica/compare/930e62e...6b7ea2e?diff=split))</sup></sub>
 
 *no relevant changes*
