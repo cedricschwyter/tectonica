@@ -10,7 +10,7 @@ const Rechtliches = () => {
                         <div className="text-4xl">Datenschutzerklärung</div>
                         <div className="text">Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:</div><br />
                         <div className="text">tectonica GmbH<br />Nicole Loetscher<br />8953 Dietikon</div>
-                        <div className="text">E-Mail: info@tectonica-bau.ch<br />WebSite: https://tectonica-bau.ch/</div>
+                        <div className="text">E-Mail: info@tectonica.ch<br />WebSite: https://tectonica.ch/</div>
                         <div className="text">&nbsp;</div>
                         <div className="text-4xl">Allgemeiner Hinweis</div>
                         <div className="text">Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer persönlichen Daten. Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</div>

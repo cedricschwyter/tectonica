@@ -67,7 +67,7 @@ const Kontakt = () => {
                             Email
                         </div>
                         <div>
-                            <a href="mailto:info@tectonica-bau.ch" className="hover:text-teal-600">info@tectonica-bau.ch</a>
+                            <a href="mailto:info@tectonica.ch" className="hover:text-teal-600">info@tectonica.ch</a>
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center m-4">
@@ -104,7 +104,7 @@ const Kontakt = () => {
             <div className="m-4 text-2xl text-center text-white grow">
                 Ein unbekannter Fehler ist aufgetreten. Bitte kontaktieren Sie uns
                 direkt unter{" "}
-                <a href="mailto:info@tectonica-bau.ch">info@tectonica-bau.ch</a>.
+                <a href="mailto:info@tectonica.ch">info@tectonica.ch</a>.
             </div>
         );
     };

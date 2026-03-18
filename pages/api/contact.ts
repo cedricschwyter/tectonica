@@ -9,13 +9,13 @@ const sendMails = async (req: NextApiRequest, res: NextApiResponse) => {
         to: process.env.COMPANY_CONTACT_EMAIL!,
         from: process.env.COMPANY_NOREPLY_EMAIL!,
         replyTo: email,
-        subject: `[tectonica-bau.ch Kontaktanfrage] ${subject} - von ${email}`,
+        subject: `[tectonica.ch Kontaktanfrage] ${subject} - von ${email}`,
         text: message
     };
     const msgCustomer = {
         to: email,
         from: process.env.COMPANY_NOREPLY_EMAIL!,
-        subject: `[Tectonica GmbH] Kontaktanfrage erhalten - ${subject}`,
+        subject: `[tectonica.ch] Kontaktanfrage erhalten - ${subject}`,
         text: `Wir haben Ihre Kontaktanfrage erhalten und werden auf Sie zukommen.\n\nBetreff: "${subject}"\nMitteilung: "${message}"`
     }
 

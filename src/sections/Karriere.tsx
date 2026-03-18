@@ -33,9 +33,9 @@ const Karriere = ({ }: KarriereProps) => {
                                 Bewerbung per Mail an{" "}
                                 <a
                                     className="text-teal-500 font-bold "
-                                    href="mailto:nicole.loetscher@tectonica-bau.ch"
+                                    href="mailto:nicole.loetscher@tectonica.ch"
                                 >
-                                    nicole.loetscher@tectonica-bau.ch
+                                    nicole.loetscher@tectonica.ch
                                 </a>
                                 .
                             </p>
