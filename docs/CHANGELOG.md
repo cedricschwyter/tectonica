@@ -1,3 +1,9 @@
+## **0.9.0** <sub><sup>2026-03-18 ([9e8329f...3570c41](https://github.com/d3psi/tectonica/compare/9e8329f...3570c41?diff=split))</sup></sub>
+
+### Features
+* update domain and emails ([9a49c41](https://github.com/d3psi/tectonica/commit/9a49c41))
+
+
 ## **0.8.2** <sub><sup>2025-01-23 ([0d33062...1c6cf30](https://github.com/d3psi/tectonica/compare/0d33062...1c6cf30?diff=split))</sup></sub>
 
 *no relevant changes*
