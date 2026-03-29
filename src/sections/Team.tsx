@@ -21,6 +21,11 @@ const Team = ({ }: TeamProps) => {
         ],
         [
             {
+                name: "Jannick Lincke",
+                picture: "/img/profile.jpg",
+                position: "Architekt und Bauleiter",
+            },
+            {
                 name: "Andy Naef",
                 picture: "/img/profile.jpg",
                 position: "Abt. Fertigungstechnik",
