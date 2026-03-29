@@ -1,3 +1,8 @@
+## **0.9.1** <sub><sup>2026-03-29 ([2a526ca...3c309c6](https://github.com/d3psi/tectonica/compare/2a526ca...3c309c6?diff=split))</sup></sub>
+
+*no relevant changes*
+
+
 ## **0.9.0** <sub><sup>2026-03-18 ([9e8329f...3570c41](https://github.com/d3psi/tectonica/compare/9e8329f...3570c41?diff=split))</sup></sub>
 
 ### Features
