@@ -11,15 +11,13 @@ const Team = ({ }: TeamProps) => {
             {
                 name: "Thomas Loetscher",
                 picture: "/img/profile.jpg",
-                position: "dipl. Bauleiter HFP, Geschäftsführer",
+                position: "dipl. Bauleiter HFP,\nGeschäftsführer",
             },
             {
                 name: "Nicole Loetscher",
                 picture: "/img/profile.jpg",
                 position: "Finanzen und Administration",
             },
-        ],
-        [
             {
                 name: "Jannick Lincke",
                 picture: "/img/profile.jpg",
@@ -33,7 +31,7 @@ const Team = ({ }: TeamProps) => {
             {
                 name: "Cedric Schwyter",
                 picture: "/img/IMG_0243.jpg",
-                position: "Software-Ingenieur, EDV Verantwortlicher",
+                position: "EDV Verantwortlicher",
             },
         ],
     ];
@@ -54,7 +52,7 @@ const Team = ({ }: TeamProps) => {
                                 {row.map((element, index) => {
                                     return (
                                         <div className="mb-24 mx-2" key={index}>
-                                            <div className="rounded-lg hover:scale-105 transition-all shadow-lg h-full block bg-black/25 backdrop-blur-md text-white min-w-[370px] ">
+                                            <div className="rounded-lg hover:scale-105 transition-all shadow-lg h-full block bg-black/25 backdrop-blur-md text-white min-w-[250px] ">
                                                 <div className="flex justify-center">
                                                     <div className="flex justify-center -mt-[75px]">
                                                         <Image
@@ -68,7 +66,7 @@ const Team = ({ }: TeamProps) => {
                                                 </div>
                                                 <div className="p-6">
                                                     <h5 className="text-lg font-bold mb-4">{element.name}</h5>
-                                                    <p className="mb-6">{element.position}</p>
+                                                    <pre className="mb-6">{element.position}</pre>
                                                 </div>
                                             </div>
                                         </div>
