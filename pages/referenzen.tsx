@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaDownload } from "react-icons/fa";
-import { pdfjs, Document, Page, Thumbnail } from 'react-pdf'
+import { pdfjs, Document, Thumbnail } from 'react-pdf'
 import Router from "next/router";
 
 
@@ -110,6 +110,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const Referenzen = () => {
     const [index, setIndex] = useState(0);
+    const [pdfReady, setPdfReady] = useState(false);
 
     return (
         <>
@@ -128,28 +129,36 @@ const Referenzen = () => {
                         <div className="flex justify-evenly">
                             <div
                                 className="btn bg-transparent text-white hover:text-teal-600 hover:border-teal-600 hover:bg-transparent"
-                                onClick={() =>
-                                    setIndex((index - 1 + cardItems.length) % cardItems.length)
-                                }
+                                onClick={() => {
+                                    setIndex((index - 1 + cardItems.length) % cardItems.length);
+                                    setPdfReady(false);
+                                }}
                             >
                                 <FaArrowLeft />
                             </div>
                             <div
                                 className="btn bg-transparent text-white hover:text-teal-600 hover:border-teal-600 hover:bg-transparent"
-                                onClick={() => setIndex((index + 1) % cardItems.length)}
+                                onClick={() => {
+                                    setIndex((index + 1) % cardItems.length);
+                                    setPdfReady(false);
+                                }}
                             >
                                 <FaArrowRight />
                             </div>
                         </div>
                     </div>
-                    {cardItems[index].referenceSheet &&
-                        <div className="w-full translate-y-1/2 bg-transparent shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl sm:hover:scale-105 transition-transform">
-                            <Document file={cardItems[index].referenceSheet} onItemClick={() => Router.push(cardItems[index].referenceSheet)}>
-                                <Thumbnail pageIndex={0} />
+                    {cardItems[index].referenceSheet && (
+                        <div className={`bg-gray-200 w-full translate-y-1/2 shadow-lg translate-x-0 sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 sm:hover:scale-105 transition-opacity duration-300 ${pdfReady ? "opacity-100" : "opacity-0"}`} >
+                            <Document
+                                file={cardItems[index].referenceSheet}
+                                loading={<div className={`transition-opacity duration-300 ${pdfReady ? "opacity-0" : "opacity-100"}`} />}
+                            >
+                                <Thumbnail pageIndex={0}
+                                    onRenderSuccess={() => setPdfReady(true)}
+                                />
                             </Document>
                         </div>
-
-                    }
+                    )}
                 </div>
             </div>
         </>
