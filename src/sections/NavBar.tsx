@@ -55,10 +55,10 @@ const navItems = [
 
 export const NavBar = () => {
     return (
-        <div className="sticky top-0 z-50 w-auto sm:mx-2 sm:mb-3 sm:top-2 bg-white/70 sm:rounded-xl navbar backdrop-blur-lg">
+        <div className="grow sticky top-0 z-50 w-auto sm:mx-2 sm:mb-3 sm:top-2 bg-white/70 sm:rounded-xl navbar backdrop-blur-lg">
             <div className="navbar-start h-20">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost md:hidden">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-5 h-5"
@@ -109,7 +109,7 @@ export const NavBar = () => {
                     <Image src="/logo.svg" alt="Tectonica Logo" width="200" height="60" />
                 </NextLink>
             </div>
-            <div className="hidden navbar-end md:flex">
+            <div className="hidden navbar-end lg:flex">
                 <ul className="px-1 menu menu-horizontal flex-nowrap">
                     {navItems.map((item, index) => {
                         return (

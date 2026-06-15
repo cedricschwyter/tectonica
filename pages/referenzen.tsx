@@ -116,8 +116,8 @@ const Referenzen = () => {
         <>
             <PageTitle title={"tectonica | Referenzen"} />
             <div className={`grid w-full min-h-screen grid-cols-12 grid-rows-6 justify-center`}>
-                <div className={`flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg sm:row-start-2 sm:col-span-8 col-span-full sm:col-start-2 sm:row-span-4 sm:flex-row lg:col-span-8 lg:col-start-2 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-md ${pdfReady ? "transition-opacity duration-300 opacity-100" : "opacity-0"}`}>
-                    <div className={cardItems[index].referenceSheet ? `flex flex-col w-full m-1 sm:translate-x-1/3 sm:translate-y-0 translate-y-1/4 2xl:translate-x-[16.666667%] rounded-2xl sm:m-0` : `flex flex-col w-full m-1 sm:translate-y-0 translate-y-1/4 rounded-2xl sm:m-0`}>
+                <div className={`flex flex-col items-center justify-end h-full grid-rows-6 row-span-5 row-start-1 shadow-lg lg:row-start-2 lg:col-span-8 col-span-full lg:col-start-2 lg:row-span-4 lg:flex-row 2xl:col-span-6 2xl:col-start-4 rounded-xl bg-black/25 backdrop-blur-lg ${pdfReady ? "transition-opacity duration-300 opacity-100" : "opacity-0"}`}>
+                    <div className={cardItems[index].referenceSheet ? `flex flex-col w-full m-1 lg:translate-x-1/3 lg:translate-y-0 translate-y-1/4 2xl:translate-x-[16.666667%] rounded-2xl lg:m-0` : `flex flex-col w-full m-1 lg:translate-y-0 translate-y-1/4 rounded-2xl lg:m-0`}>
                         <div className="m-4 text-4xl font-bold text-center text-white grow">
                             {cardItems[index].projectName}
                         </div>
@@ -148,15 +148,18 @@ const Referenzen = () => {
                         </div>
                     </div>
                     {cardItems[index].referenceSheet && (
-                        <div className={`w-full translate-y-1/2 shadow-lg translate-x-0 sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 sm:hover:scale-105 ${pdfReady ? "transition-opacity duration-300 opacity-100" : "opacity-0"}`} >
-                            <Document
-                                file={cardItems[index].referenceSheet}
-                                loading={<div className="w-full h-2/5 sm:h-4/5" />}
-                            >
-                                <Thumbnail pageIndex={0}
-                                    onRenderSuccess={() => setPdfReady(true)}
-                                />
-                            </Document>
+                        <div className="block">
+                            <div className={`scale-50 md:scale-100 w-full translate-y-1/2 shadow-lg translate-x-0 lg:w-full lg:translate-x-1/2 2xl:translate-x-1/4 lg:translate-y-0 h-2/5 lg:h-4/5 lg:hover:scale-105 ${pdfReady ? "transition-opacity duration-300 opacity-100" : "opacity-0"}`} >
+                                <Document
+                                    file={cardItems[index].referenceSheet}
+                                    loading={<div className="w-full h-2/5 lg:h-4/5" />}
+                                    onItemClick={() => Router.push(cardItems[index].referenceSheet)}
+                                >
+                                    <Thumbnail pageIndex={0}
+                                        onRenderSuccess={() => setPdfReady(true)}
+                                    />
+                                </Document>
+                            </div>
                         </div>
                     )}
                 </div>
