@@ -1,7 +1,8 @@
-import sendgrid from '@sendgrid/mail';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendMails = async (req: NextApiRequest, res: NextApiResponse) => {
     const { email, subject, message } = req.body;
@@ -20,8 +21,8 @@ const sendMails = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     try {
-        await sendgrid.send(msgTectonica);
-        await sendgrid.send(msgCustomer);
+        await resend.emails.send(msgTectonica);
+        await resend.emails.send(msgCustomer);
         res.json({ message: 'email has been sent' });
     } catch (e) {
         res.status(500).json({ error: 'error sending email' });
