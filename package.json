@@ -13,7 +13,7 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@react-google-maps/api": "^2.18.1",
+        "@react-google-maps/api": "^2.20.8",
         "@sendgrid/mail": "^7.7.0",
         "@typescript-eslint/parser": "^5.43.0",
         "daisyui": "^2.50.1",
