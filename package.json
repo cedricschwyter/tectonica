@@ -27,7 +27,7 @@
         "react-device-detect": "^2.2.2",
         "react-dom": "18.2.0",
         "react-icons": "^4.6.0",
-        "react-pdf": "^7.3.3",
+        "react-pdf": "^7.7.3",
         "react-slick": "^0.29.0",
         "react-tsparticles": "^2.7.1",
         "resend": "^6.14.0",
