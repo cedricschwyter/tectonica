@@ -132,7 +132,16 @@ const Kontakt = () => {
                         id="map"
                         className="w-full translate-y-1/2 bg-blue-400 shadow-lg translate-x-0sition-all sm:w-full sm:translate-x-1/2 2xl:translate-x-1/4 sm:translate-y-0 h-2/5 sm:h-4/5 rounded-xl sm:hover:scale-105"
                     >
-                        <GMap />
+                        <iframe
+                            src="https://maps.google.com/maps?q=Holzmattstrasse+9%2C+8953+Dietikon%2C+Schweiz&output=embed&z=15&hl=de"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="tectonica GmbH Standort"
+                        />
                     </div>
                 </div>
             </div>
